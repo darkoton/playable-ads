@@ -40,7 +40,7 @@
 
     .hand {
       position: absolute;
-      width: 9vw;
+      width: 8vw;
       z-index: 10;
       left: 0%;
       top: 0%;
@@ -733,6 +733,7 @@
             })
 
             if (count === 6) {
+              level.style.pointerEvents = 'none'
               selectLevel('level2')
               level2()
             }

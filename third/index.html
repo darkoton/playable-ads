@@ -40,7 +40,7 @@
 
     .hand {
       position: absolute;
-      width: 9vw;
+      width: 8vw;
       z-index: 10;
       left: 0%;
       top: 0%;
@@ -161,14 +161,15 @@
 
     #level1 .main {
       position: absolute;
-      /* width: 100%; */
+       width: 80%; 
       /* max-width: 40%; */
       /* max-height: 1043px; */
-      height: 100%;
+/*      height: 100%;*/
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-color: green;
+      display: flex;
+      align-items: center;
     }
 
     #level1 .main img {
@@ -178,36 +179,35 @@
 
     #level1 .hitboxes .hitbox {
       position: absolute;
-      background-color: rgba(255, 0, 0, 0.4);
-      width: 6.2vw;
-      height: 6.2vw;
+/*      background-color: rgba(255, 0, 0, 0.4);*/
+      width: 9.9vw;
+      height: 9.9vw;
       z-index: 1;
     }
 
-    #level1 .hitboxes :nth-child(1) {
-      left: 13.5vw;
-      top: 10vw;
+    #level1 .hitboxes .hitbox:nth-child(1) {
+      left: 21.5vw;
+      top: 15.6vw;
     }
 
-    #level1 .hitboxes :nth-child(2) {
-      left: 18.8vw;
-      top: 13.5vw;
-
+    #level1 .hitboxes .hitbox:nth-child(2) {
+      left: 30.3vw;
+      top: 21.4vw;
     }
 
-    #level1 .hitboxes :nth-child(3) {
-      left: 25vw;
-      top: 16vw;
+    #level1 .hitboxes .hitbox:nth-child(3) {
+      left: 40vw;
+      top: 25.7vw;
     }
 
-    #level1 .hitboxes :nth-child(4) {
-      left: 31.5vw;
-      top: 17.5vw;
+    #level1 .hitboxes .hitbox:nth-child(4) {
+      left: 50.5vw;
+      top: 27.5vw;
     }
 
-    #level1 .hitboxes :nth-child(5) {
-      left: 38vw;
-      top: 17vw;
+    #level1 .hitboxes .hitbox:nth-child(5) {
+      left: 61vw;
+      top: 27.5vw;
     }
 
 
@@ -216,34 +216,296 @@
       position: absolute;
       left: 0;
       top: 0;
-      width: 6.2vw;
-      height: 6.2vw;
+      width: 9.9vw;
+      height: 9.9vw;
       transform: scale(0.9);
+      z-index: 5;
     }
 
     #level1 .corns img:nth-child(1) {
       top: 30%;
-      left: 70%;
+      left: 60%;
     }
 
     #level1 .corns img:nth-child(2) {
       top: 70%;
-      left: 20%;
+      left: 33%;
     }
 
     #level1 .corns img:nth-child(3) {
-      top: 65%;
-      left: 100%;
+      top: 80%;
+      left: 64%;
     }
 
     #level1 .corns img:nth-child(4) {
-      top: 40%;
-      left: -10%;
+      top: 46%;
+      left: 10%;
     }
 
     #level1 .corns img:nth-child(5) {
-      top: 10%;
-      left: 40%;
+      top: 20%;
+      left: 45%;
+    }
+
+    @media(max-width: 680px){
+      #level1 .main{
+        width: 100%;
+      }
+
+      #level1 .hitboxes .hitbox {
+        width: 12.9vw;
+        height: 12.9vw;
+      }
+
+      #level1 .corns img{
+        width: 12.9vw;
+        height: 12.9vw; 
+      }
+
+      #level1 .hitboxes :nth-child(1) {
+        left: 26.5vw;
+        top: 19.6vw;
+      }
+
+      #level1 .hitboxes :nth-child(2) {
+        left: 37.8vw;
+        top: 26.4vw;
+      }
+
+      #level1 .hitboxes :nth-child(3) {
+        left: 50vw;
+        top: 31.7vw;
+      }
+
+      #level1 .hitboxes :nth-child(4) {
+        left: 62.5vw;
+        top: 34.5vw;
+      }
+
+      #level1 .hitboxes :nth-child(5) {
+        left: 76vw;
+        top: 34.5vw;
+      }
+    }
+
+    /* LEVEL 2 */
+
+    #level2 {
+      background: url('assets/2-level/bg.jpg') 0 0/ cover no-repeat;
+      position: relative;
+    }
+
+    #level2 img {
+      object-fit: contain;
+    }
+
+    #level2 .main {
+      position: absolute;
+       width: 70%; 
+      /* max-width: 40%; */
+      /* max-height: 1043px; */
+/*      height: 100%;*/
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+    }
+
+    @media(max-width: 768px){
+      #level2 .main{
+        width: 90%;
+      }
+
+      #level2 .hand{
+        display: none;
+      }
+    }
+
+    #level2 .main img {
+      width: 100%;
+      /* height: 100%; */
+    }
+
+    #level2 .hitboxes .hitbox {
+      position: absolute;
+/*      background-color: rgba(255, 0, 0, 0.4);*/
+      width: 9.9vw;
+      height: 9.9vw;
+      z-index: 1;
+    }
+
+    #level2 .hitboxes .hitbox:nth-child(1) {
+      left: 11.5%;
+      top: 15%;
+      width: 21.4%;
+      height: 24%;
+    }
+
+    #level2 .hitboxes .hitbox:nth-child(2) {
+      left: 41%;
+      top: 44%;
+      width: 27.5%;
+      height: 23%;
+    }
+
+    #level2 .hitboxes .hitbox:nth-child(3) {
+      left: 69%;
+      top: 17%;
+      width: 18.6%;
+      height: 27%;
+    }
+
+    #level2 .hitboxes .hitbox:nth-child(4) {
+      left: 12%;
+      top: 62%;
+      width: 17%;
+      height: 21%;
+    }
+
+    #level2 .hitboxes .hitbox:nth-child(5) {
+      left: 33%;
+      top: 59%;
+      width: 20.5%;
+      height: 22%;
+    }
+
+    #level2 .hitboxes .hitbox:nth-child(6) {
+      left: 11.3%;
+      top: 40%;
+      width: 17.5%;
+      height: 22%;
+    }
+
+    #level2 .hitboxes .hitbox:nth-child(7) {
+      left: 33%;
+      top: 19%;
+      width: 20%;
+      height: 21%;
+    }
+
+    #level2 .hitboxes .hitbox:nth-child(8) {
+      left: 66.3%;
+      top: 53%;
+      width: 22%;
+      height: 28%;
+    }
+
+
+    #level2 .static img{
+      position: absolute;
+    }
+
+    #level2 .static img:nth-child(1) {
+      left: 30.4%;
+      top: 39.4%;
+      width: 10%;
+    }
+    #level2 .static img:nth-child(2) {
+      left: 54.4%;
+      top: 67.4%;
+      width: 11%;
+    }
+    #level2 .static img:nth-child(3) {
+      left: 53%;
+      top: 22.4%;
+      width: 15.5%;
+    }
+    #level2 .static img:nth-child(4) {
+      left: 29%;
+      top: 52%;
+      width: 13%;
+    }
+
+    #level2 .butterflies img{
+      position: absolute;
+      z-index: 5;
+      transform: rotate(45deg);
+      transition: transform 0.3s ease 0s;
+    }
+
+    #level2 .butterflies img:nth-child(1){
+    left: 5.5%;
+    top: 44%;
+    width: 15vw;
+    }
+    #level2 .butterflies img:nth-child(2){
+    left: 73.6%;
+    top: 30%;
+    width: 19.3vw;
+    }
+    #level2 .butterflies img:nth-child(3){
+    left: 5%;
+    top: 60%;
+    width: 13vw;
+    }
+    #level2 .butterflies img:nth-child(4){
+    left: 77%;
+    top: 38%;
+    width: 11.8vw;
+    }
+    #level2 .butterflies img:nth-child(5){
+    left: 10%;
+    top: 16.4%;
+    width: 14.6vw;
+    }
+    #level2 .butterflies img:nth-child(6){
+    left: 80.7%;
+    top: 60%;
+    width: 12.5vw;
+    }
+    #level2 .butterflies img:nth-child(7){
+    left: 7.7%;
+    top: 28%;
+    width: 14vw;
+    }
+    #level2 .butterflies img:nth-child(8){
+    left: 77%;
+    top: 70%;
+    width: 15.5vw;
+    }
+
+    @media(max-width: 768px){
+      #level2 .butterflies img:nth-child(1){
+      left: 2.5%;
+      top: 44%;
+      width: 19.2vw;
+      }
+      #level2 .butterflies img:nth-child(2){
+      left: 73.6%;
+      top: 30%;
+      width: 25vw;
+      }
+      #level2 .butterflies img:nth-child(3){
+      left: 3%;
+      top: 60%;
+      width: 16.3vw;
+      }
+      #level2 .butterflies img:nth-child(4){
+      left: 77%;
+      top: 38%;
+      width: 15vw;
+      }
+      #level2 .butterflies img:nth-child(5){
+      left: 6%;
+      top: 16.4%;
+      width: 18.4vw;
+      }
+      #level2 .butterflies img:nth-child(6){
+      left: 80.7%;
+      top: 60%;
+      width: 15.7vw;
+      }
+      #level2 .butterflies img:nth-child(7){
+      left: 4.7%;
+      top: 28%;
+      width: 18vw;
+      }
+      #level2 .butterflies img:nth-child(8){
+      left: 77%;
+      top: 70%;
+      width: 19.6vw;
+      }
     }
   </style>
 </head>
@@ -251,8 +513,9 @@
 <body>
   <div class="game">
     <div class="level" id="level1">
-      <div class="main">
+      <img class="hand" src="assets/hand.png" alt="" />
 
+      <div class="main">
         <div class="hitboxes">
           <div data-hitbox="1" class="hitbox"></div>
           <div data-hitbox="2" class="hitbox"></div>
@@ -266,16 +529,53 @@
       </div>
 
       <div class="corns">
-        <img data-hitbox="1" src="assets/1-level/goroh2.png" alt="">
-        <img data-hitbox="2" src="assets/1-level/goroh2.png" alt="">
-        <img data-hitbox="3" src="assets/1-level/goroh2.png" alt="">
-        <img data-hitbox="4" src="assets/1-level/goroh2.png" alt="">
-        <img data-hitbox="5" src="assets/1-level/goroh2.png" alt="">
+        <img data-hitbox src="assets/1-level/goroh2.png" alt="">
+        <img data-hitbox src="assets/1-level/goroh2.png" alt="">
+        <img data-hitbox src="assets/1-level/goroh2.png" alt="">
+        <img data-hitbox src="assets/1-level/goroh2.png" alt="">
+        <img data-hitbox src="assets/1-level/goroh2.png" alt="">
       </div>
     </div>
 
     <div class="level" id="level2" style="display: none;">
+      <img class="hand" src="assets/hand.png" alt="" />
 
+      <audio data-sound="take" src="assets/2-level/audio/take.mp3" ></audio>      
+      <audio data-sound="put" src="assets/2-level/audio/put.mp3" ></audio>      
+
+      <div class="main">
+        <div class="hitboxes">
+          <div data-hitbox="but4" class="hitbox"></div>
+          <div data-hitbox="but6" class="hitbox"></div>
+          <div data-hitbox="but7" class="hitbox"></div>
+          <div data-hitbox="but8" class="hitbox"></div>
+          <div data-hitbox="but9" class="hitbox"></div>
+          <div data-hitbox="but10" class="hitbox"></div>
+          <div data-hitbox="but11" class="hitbox"></div>
+          <div data-hitbox="but12" class="hitbox"></div>
+        </div>
+
+        <div class="static">
+          <img src="assets/2-level/1.png">
+          <img src="assets/2-level/2.png">
+          <img src="assets/2-level/3.png">
+          <img src="assets/2-level/5.png">
+        </div>
+
+        <img class="stand" src="assets/2-level/pic.png">
+      </div>
+
+      <div class="butterflies"> 
+          <img data-hitbox="but4" src="assets/2-level/4.png">
+          <img data-hitbox="but6" src="assets/2-level/6.png">
+          <img data-hitbox="but7" src="assets/2-level/7.png">
+          <img data-hitbox="but8" src="assets/2-level/8.png">
+          <img data-hitbox="but9" src="assets/2-level/9.png">
+          <img data-hitbox="but10" src="assets/2-level/10.png">
+          <img data-hitbox="but11" src="assets/2-level/11.png">
+          <img data-hitbox="but12" src="assets/2-level/12.png">
+
+      </div>
     </div>
 
     <div id="popup">
@@ -294,8 +594,8 @@
       FbPlayableAd.onCTAClick()
     })
 
-    // const audios = document.querySelectorAll('audio')
-    // audios.forEach(audio => audio.volume = 0.45)
+    const audios = document.querySelectorAll('audio')
+    audios.forEach(audio => audio.volume = 0.45)
 
     const levels = document.querySelectorAll('.level')
     function selectLevel(id) {
@@ -308,17 +608,28 @@
       })
     }
 
-    function isIntersecting(el1, el2) {
-      const rect1 = el1.getBoundingClientRect();
-      const rect2 = el2.getBoundingClientRect();
+function isIntersecting(el1, ...elements) {
+  const rect1 = el1.getBoundingClientRect();
+  let maxIntersection = 0;
+  let bestMatch = false;
 
-      return !(
-        rect1.right < rect2.left ||
-        rect1.left > rect2.right ||
-        rect1.bottom < rect2.top ||
-        rect1.top > rect2.bottom
-      );
+  elements.forEach(el => {
+    const rect2 = el.getBoundingClientRect();
+    
+    const xOverlap = Math.max(0, Math.min(rect1.right, rect2.right) - Math.max(rect1.left, rect2.left));
+    const yOverlap = Math.max(0, Math.min(rect1.bottom, rect2.bottom) - Math.max(rect1.top, rect2.top));
+    
+    const intersectionArea = xOverlap * yOverlap;
+
+    if (intersectionArea > maxIntersection) {
+      maxIntersection = intersectionArea;
+      bestMatch = el;
     }
+  });
+
+  return bestMatch;
+}
+
 
     function handTutorial(hand, position) {
 
@@ -360,13 +671,13 @@
       // const takeAudio = level.querySelector('[data-sound="take"]')
 
 
-      // handTutorial(level.querySelector('.hand'),
-      //   {
-      //     leftStart: '23%',
-      //     topStart: '30%',
-      //     leftEnd: '18%',
-      //     topEnd: '75%',
-      //   })
+      handTutorial(level.querySelector('.hand'),
+        {
+          leftStart: '12%',
+          topStart: '52%',
+          leftEnd: '42%',
+          topEnd: '52%',
+        })
 
       corns.forEach(corn => {
         // Drag and drop       
@@ -374,6 +685,11 @@
           e.preventDefault()
 
           // takeAudio.play()
+
+          if(corn.dataset.hitbox){
+            level.querySelector(`.hitboxes > [data-hitbox="${corn.dataset.hitbox}"]`).dataset.active = false
+            corn.dataset.hitbox = ""
+          }
 
           corn.dataset.active = false
           corn.style.transform = 'none'
@@ -407,36 +723,41 @@
             moveAt(e);
           }
 
-          document.onmouseup = document.ontouchend = function () {
+          document.onmouseup = document.ontouchend = function (e) {
             document.onmousemove = document.ontouchmove = null
             document.onmouseup = document.ontouchend = null
 
 
             // Check overlap
-            const otherHitbox = Array.from(level.querySelectorAll(`[data-hitbox="${corn.dataset.hitbox}"]`)).filter(ht => ht !== corn)[0]
+            const hitboxes = level.querySelectorAll(`.hitboxes > [data-hitbox]`)
 
-            if (isIntersecting(corn, otherHitbox)) {
-              const otherHitboxRect = otherHitbox.getBoundingClientRect()
-
-              level.querySelector(`[data-sound="${corn.dataset.play}"]`).play()
-
-              corn.style.left = otherHitboxRect.x;
-              corn.style.top = otherHitboxRect.y;
+              const hitbox = isIntersecting(corn, ...hitboxes)
+              if (hitbox && hitbox.dataset.active !== 'true') {
+             
+              const hitboxRect = hitbox.getBoundingClientRect()
+              // level.querySelector(`[data-sound="${corn.dataset.play}"]`).play()
+            
+              corn.dataset.hitbox = hitbox.dataset.hitbox
+              corn.style.left = hitboxRect.x + 'px';
+              corn.style.top = hitboxRect.y + 'px';
 
               corn.style.zIndex = 1
               corn.dataset.active = true
+              hitbox.dataset.active = true
 
-              if (level.querySelectorAll('[data-active="true"]').length === 5) {
-                indicator.src = 'assets/2-level/on.png'
-                level.style.pointerEvents = 'none'
-                popup.classList.add('active')
-              }
-
-            } else {
+            } else{
               corn.style.transform = null
               corn.style.zIndex = 5
             }
 
+            if (level.querySelectorAll('.corns > [data-active="true"]').length === 5) {
+                level.style.pointerEvents = 'none'
+                selectLevel('level2')
+                level2()
+            }
+
+
+        
           }
         }
 
@@ -448,30 +769,21 @@
     // LEVEL 2
     function level2() {
       const level = document.querySelector('#level2')
-      const wires = level.querySelectorAll('.wire')
+      const butterflies = level.querySelectorAll('.butterflies > img')
       const takeAudio = level.querySelector('[data-sound="take"]')
-      const indicator = level.querySelector('.indicator')
+      const putAudio = level.querySelector('[data-sound="put"]')
 
-      if (window.innerWidth <= 1070) {
-        handTutorial(level.querySelector('.hand'),
+
+         handTutorial(level.querySelector('.hand'),
           {
-            leftStart: '31%',
-            topStart: '65%',
-            leftEnd: '80vw',
-            topEnd: '79%',
+            leftStart: '12vw',
+            topStart: '41vh',
+            leftEnd: '42vw',
+            topEnd: '41vh',
           })
-      } else {
-        handTutorial(level.querySelector('.hand'),
-          {
-            leftStart: '23%',
-            topStart: '30%',
-            leftEnd: '18%',
-            topEnd: '75%',
-          })
-      }
-      wires.forEach(wire => {
-        const hitbox = wire.querySelector('.hitbox')
-        const imgs = wire.querySelectorAll('img')
+
+      butterflies.forEach(butterfly => {
+        const imgs = butterfly.querySelectorAll('img')
 
         // Drag and drop       
         function dragDrop(e) {
@@ -479,13 +791,13 @@
 
           takeAudio.play()
 
-          wire.dataset.active = false
-          wire.style.transform = 'none'
-          wire.style.zIndex = 6
+          butterfly.dataset.active = false
+          butterfly.style.transform = 'none'
+          butterfly.style.zIndex = 6
 
           imgs.forEach(img => img.src = img.dataset.out)
 
-          const rect = wire.getBoundingClientRect();
+          const rect = butterfly.getBoundingClientRect();
           let offsetX = e.clientX - rect.left;
           let offsetY = e.clientY - rect.top;
 
@@ -500,11 +812,11 @@
           function moveAt(e) {
 
             if (e.touches) {
-              wire.style.left = e.touches[0].pageX - offsetX + 'px';
-              wire.style.top = e.touches[0].pageY - offsetY + 'px';
+              butterfly.style.left = e.touches[0].pageX - offsetX + 'px';
+              butterfly.style.top = e.touches[0].pageY - offsetY + 'px';
             } else {
-              wire.style.left = e.pageX - offsetX + 'px';
-              wire.style.top = e.pageY - offsetY + 'px';
+              butterfly.style.left = e.pageX - offsetX + 'px';
+              butterfly.style.top = e.pageY - offsetY + 'px';
             }
           }
 
@@ -518,44 +830,38 @@
 
 
             // Check overlap
-            const otherHitbox = Array.from(level.querySelectorAll(`[data-hitbox="${hitbox.dataset.hitbox}"]`)).filter(ht => ht !== hitbox)[0]
+            const hitbox = Array.from(level.querySelectorAll(`[data-hitbox="${butterfly.dataset.hitbox}"]`)).filter(ht => ht !== butterfly)[0]
 
-            if (isIntersecting(hitbox, otherHitbox)) {
-              const otherHitboxRect = otherHitbox.getBoundingClientRect()
+            if (isIntersecting(butterfly, hitbox)) {
+              const hitboxRect = hitbox.getBoundingClientRect()
               imgs.forEach(img => img.src = img.dataset.in)
 
-              level.querySelector(`[data-sound="${wire.dataset.play}"]`).play()
+              putAudio.play()
 
-              if (window.innerWidth <= 1070) {
-                wire.style.left = otherHitboxRect.x - wire.offsetWidth + otherHitbox.offsetWidth * (wire.dataset.offsetMob ? wire.dataset.offsetMob : wire.dataset.offset ? wire.dataset.offset : 1) + 'px';
-                wire.style.top = otherHitboxRect.y + (otherHitbox.offsetHeight / 2) - (wire.offsetHeight / 2) + 'px';
-              } else {
-                wire.style.left = otherHitboxRect.x + (otherHitbox.offsetWidth / 2) - (wire.offsetWidth / 2) + 'px';
-                wire.style.top = otherHitboxRect.y - wire.offsetHeight + otherHitbox.offsetHeight * (wire.dataset.offset ? wire.dataset.offset : 1) + 'px';
 
-              }
+                butterfly.style.left = hitboxRect.x + 'px';
+                butterfly.style.top = hitboxRect.y + 'px';
 
-              wire.style.zIndex = 1
-              wire.dataset.active = true
 
-              if (level.querySelectorAll('[data-active="true"]').length === 5) {
-                indicator.src = 'assets/2-level/on.png'
+              butterfly.style.zIndex = 1
+              butterfly.dataset.active = true
+
+              if (level.querySelectorAll('[data-active="true"]').length === 8) {
                 level.style.pointerEvents = 'none'
                 popup.classList.add('active')
               }
 
             } else {
-              wire.style.transform = null
-              wire.style.zIndex = 5
+              butterfly.style.transform = null
+              butterfly.style.zIndex = 5
             }
 
           }
         }
 
-        hitbox.onmousedown = hitbox.ontouchstart = dragDrop
+        butterfly.onmousedown = butterfly.ontouchstart = dragDrop
       })
     }
-
   </script>
 </body>
 
