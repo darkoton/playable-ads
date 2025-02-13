@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playable-1</title>
+
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      user-select: none;
+    }
+
+    body {
+      background-color: #222;
+      overflow: hidden;
+    }
+
+    .game {
+      height: 100%;
+      width: 100%;
+    }
+
+    .level {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hand {
+      position: absolute;
+      width: 9vw;
+      z-index: 10;
+      left: 0%;
+      top: 0%;
+    }
+
+    /* LEVEL 1 */
+
+    #level1 {
+      background: url('assets/1-level/bg.png') 0 0/ cover no-repeat;
+      position: relative;
+    }
+
+    .announcement {
+      position: absolute;
+      top: 25vh;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      max-width: 50%;
+      object-fit: contain;
+      z-index: 1;
+    }
+
+    @media (max-width:768px) {
+      .announcement {
+        max-width: 90%;
+      }
+    }
+
+
+    .announcement-main {
+      width: 100%;
+
+    }
+
+    .paper {
+      position: absolute;
+      width: 100%;
+      max-width: 12.5%;
+      z-index: 2;
+      transition: transform 0.03s ease 0s, top 3.5s ease-in-out 0s;
+      cursor: pointer;
+    }
+
+    .p1 {
+      max-width: 24.3%;
+      top: 73%;
+      left: -5.5%;
+    }
+
+    .p2 {
+      top: 79%;
+      left: 12.15%;
+      max-width: 22%;
+    }
+
+
+    .p3 {
+      top: 83%;
+      left: 28.5%;
+      max-width: 18.3%;
+    }
+
+    .p4 {
+      top: 85.4%;
+      left: 42.37%;
+      max-width: 19.56%;
+    }
+
+    .p5 {
+      top: 88%;
+      left: 58.3%;
+      max-width: 19.5%;
+    }
+
+    .p6 {
+      top: 90%;
+      left: 75.8%;
+      max-width: 14.9%;
+    }
+
+    /* LEVEL 2 */
+
+    #level2 {
+      background: url('assets/2-level/bg.jpg') 0 0/ cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: end;
+      padding: 50px 0;
+    }
+
+
+    .adapter {
+      width: 100%;
+      position: relative;
+    }
+
+    .adapter .block {
+      width: 100%;
+      height: 100%;
+    }
+
+    .adapter .block.mob {
+      display: none;
+    }
+
+    .adapter .hitbox {
+      position: absolute;
+      left: 0;
+      top: 0;
+      /* background-color: rgba(0, 0, 255, 0.3); */
+    }
+
+    .adapter .hitbox:nth-child(1) {
+      width: 4.6%;
+      height: 20%;
+      left: 9%;
+      top: 40%;
+    }
+
+    .adapter .hitbox:nth-child(2) {
+      width: 4.6%;
+      height: 20%;
+      left: 19.3%;
+      top: 40%;
+    }
+
+    .adapter .hitbox:nth-child(3) {
+      width: 3%;
+      height: 13%;
+      left: 30.5%;
+      top: 44%;
+    }
+
+    .adapter .hitbox:nth-child(4) {
+      width: 13.3%;
+      height: 58%;
+      left: 39.5%;
+      top: 18%;
+    }
+
+    .adapter .hitbox:nth-child(5) {
+      width: 13.3%;
+      height: 58%;
+      left: 54.9%;
+      top: 18%;
+    }
+
+    .wire {
+      display: flex;
+      align-items: end;
+      justify-content: end;
+      top: calc(100vh - 50vh - 80vw);
+      /* bottom: 50vh; */
+      left: 0;
+      position: absolute;
+      z-index: 4;
+      transform: scale(0.9);
+      height: 80vw;
+    }
+
+
+    .wire .hitbox {
+      position: absolute;
+      bottom: 0%;
+      left: 0;
+      width: 100%;
+      cursor: grab;
+      /* background-color: rgba(255, 0, 0, 0.3); */
+    }
+
+    .wire img {
+      width: 100%;
+    }
+
+    .wire img.mob {
+      display: none;
+    }
+
+
+    .wire:nth-child(1) {
+      width: 5.8vw;
+      left: 65%;
+    }
+
+    .wire:nth-child(1) .hitbox {
+      height: 32%;
+    }
+
+    .wire:nth-child(2) {
+      width: 5.8vw;
+      left: 23%;
+    }
+
+    .wire:nth-child(2) .hitbox {
+      height: 32%;
+    }
+
+    .wire:nth-child(3) {
+      width: 4.9vw;
+      left: 53%;
+    }
+
+    .wire:nth-child(3) .hitbox {
+      height: 24%;
+    }
+
+    .wire:nth-child(4) {
+      width: 12vw;
+      left: 7%;
+
+    }
+
+    .wire:nth-child(4) .hitbox {
+      height: 22.5%;
+    }
+
+    .wire:nth-child(5) {
+      width: 13.5vw;
+      left: 33%;
+    }
+
+    .wire:nth-child(5) .hitbox {
+      height: 22.5%;
+    }
+
+    .indicator {
+      position: absolute;
+      right: 25%;
+      top: 45%;
+      width: 3vw;
+      max-width: 100%;
+      transform: translateY(-50%);
+    }
+
+    @media (max-width: 1070px) {
+      .wire img {
+        display: none;
+        height: 100%;
+      }
+
+      .wire img.mob {
+        display: block;
+      }
+
+      .adapter .block {
+        display: none;
+      }
+
+      .adapter .block.mob {
+        display: block;
+      }
+
+      #level2 {
+        padding: 0;
+        justify-content: flex-end;
+
+      }
+
+      .adapter {
+        height: 100%;
+        width: auto;
+      }
+
+      .adapter .hitbox {
+        top: auto !important;
+      }
+
+      .adapter .hitbox:nth-child(1) {
+        width: 20%;
+        height: 4.6%;
+        left: 40%;
+        bottom: 9%;
+      }
+
+      .adapter .hitbox:nth-child(2) {
+        width: 20%;
+        height: 4.6%;
+        left: 40%;
+        bottom: 19.3%;
+      }
+
+      .adapter .hitbox:nth-child(3) {
+        width: 13%;
+        height: 3%;
+        left: 44%;
+        bottom: 30.5%;
+      }
+
+      .adapter .hitbox:nth-child(4) {
+        width: 58%;
+        height: 13.3%;
+        left: 18%;
+        bottom: 39.5%;
+      }
+
+      .adapter .hitbox:nth-child(5) {
+        width: 58%;
+        height: 13.3%;
+        left: 18%;
+        bottom: 54.9%;
+      }
+
+      .indicator {
+        top: 25%;
+        right: 45%;
+        width: 3vh;
+        max-width: 100%;
+        transform: translateX(-50%);
+      }
+
+      .wire:nth-child(n) {
+        width: 80vh;
+        left: -30vh;
+      }
+
+      .wire:nth-child(n) .hitbox {
+        left: auto;
+        right: 0;
+        height: 100%;
+      }
+
+      .wire:nth-child(1) {
+        height: 5.8vh;
+        top: 40%;
+      }
+
+      .wire:nth-child(1) .hitbox {
+        width: 32%;
+      }
+
+      .wire:nth-child(2) {
+        height: 5.8vh;
+        top: 63%;
+      }
+
+      .wire:nth-child(2) .hitbox {
+        width: 32%;
+      }
+
+      .wire:nth-child(3) {
+        height: 4.9vh;
+        top: 28%;
+      }
+
+      .wire:nth-child(3) .hitbox {
+        width: 24%;
+      }
+
+      .wire:nth-child(4) {
+        height: 12vh;
+        top: 75%;
+      }
+
+      .wire:nth-child(4) .hitbox {
+        width: 22.5%;
+      }
+
+      .wire:nth-child(5) {
+        height: 13.5vh;
+        top: 49%;
+      }
+
+      .wire:nth-child(5) .hitbox {
+        width: 22.5%;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .wire:nth-child(n) {
+        left: auto;
+        right: 40%;
+      }
+    }
+
+    /* POPUP */
+
+    #popup {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      top: 50%;
+      left: 50%;
+      z-index: 300;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 100%;
+      height: 80%;
+      max-width: 670px;
+      background: url("assets/popup-bg.jpg") center / cover no-repeat;
+      color: #333;
+      flex-direction: column;
+      justify-content: center;
+
+      padding: 30px;
+      font-size: 3em;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+
+    }
+
+    #popup.active {
+      display: flex;
+    }
+
+
+    #popup img {
+      width: 100%;
+      max-width: 250px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      border: 1px solid #fff;
+      margin-bottom: 30px;
+    }
+
+    #popup h2 {
+      margin: 20px 0;
+      font-size: 1.3em;
+      text-transform: uppercase;
+      color: #ffffff;
+      font-family: sans-serif;
+    }
+
+    #popup button {
+      padding: 20px 30px;
+      color: #624060;
+      background: url('assets/button-bg.jpg');
+      border: 0;
+      cursor: pointer;
+      stroke: 0;
+      font-size: 1.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border-radius: 1000px;
+      /* box-shadow: 0 0 20px 1px rgb(203, 72, 207); */
+      animation: pulse 1s ease 0s infinite alternate;
+    }
+
+    @media (max-width:670px) {
+      #popup {
+        padding: 5vw;
+      }
+
+      #popup h2 {
+        margin: 3vw 0;
+        font-size: 9vw;
+      }
+
+      #popup button {
+        padding: 3vw 4vw;
+        font-size: 8vw;
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(0.95);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="game">
+    <div class="level" id="level1">
+      <audio data-sound="cow" src="assets/1-level/ad_sounds/1 бумажка корова.mp3"></audio>
+      <audio data-sound="goat" src="assets/1-level/ad_sounds/2 бумажка коза.mp3"></audio>
+      <audio data-sound="horse" src="assets/1-level/ad_sounds/3 бумажка лошадь.mp3"></audio>
+      <audio data-sound="chicken" src="assets/1-level/ad_sounds/4 бумажка курица.mp3"></audio>
+      <audio data-sound="goose" src="assets/1-level/ad_sounds/5 бумажка гусь.mp3"></audio>
+      <audio data-sound="sheep" src="assets/1-level/ad_sounds/6 бумажка овца.mp3"></audio>
+      <audio data-sound="paper" src="assets/1-level/ad_sounds/оторвали бумажку.mp3"></audio>
+
+
+      <div class="announcement">
+        <img class="hand" src="assets/hand.png" alt="">
+
+        <img class="announcement-main" src="assets/1-level/Ad.png" alt="Ad">
+        <img data-play="cow" class="paper p1" src="assets/1-level/p1.png" alt="Ad">
+        <img data-play="goat" class="paper p2" src="assets/1-level/p2.png" alt="Ad">
+        <img data-play="horse" class="paper p3" src="assets/1-level/p3.png" alt="Ad">
+        <img data-play="chicken" class="paper p4" src="assets/1-level/p4.png" alt="Ad">
+        <img data-play="goose" class="paper p5" src="assets/1-level/p5.png" alt="Ad">
+        <img data-play="sheep" class="paper p6" src="assets/1-level/p6.png" alt="Ad">
+      </div>
+    </div>
+
+    <div class="level" id="level2" style="display: none;">
+      <audio data-sound="take" src="assets/2-level/audio/потянуть-за-шнур.mp3"></audio>
+      <audio data-sound="put1" src="assets/2-level/audio/вставить 1.mp3"></audio>
+      <audio data-sound="put2" src="assets/2-level/audio/вставить 2.mp3"></audio>
+      <audio data-sound="put3" src="assets/2-level/audio/вставить 3.mp3"></audio>
+      <audio data-sound="put4" src="assets/2-level/audio/вставить 4.mp3"></audio>
+
+
+      <div class="wires">
+        <div class="wire" data-play="put1" data-offset="1.2">
+          <img data-in="assets/2-level/w1in.png" data-out="assets/2-level/w1.png" src="assets/2-level/w1.png" alt="">
+          <img class="mob" data-in="assets/2-level/mob/w1in.png" data-out="assets/2-level/mob/w1.png"
+            src="assets/2-level/mob/w1.png" alt="">
+          <div data-hitbox="blue" class="hitbox"></div>
+        </div>
+
+        <div class="wire" data-play="put1" data-offset="1.2">
+          <img data-in="assets/2-level/w2in.png" data-out="assets/2-level/w2.png" src="assets/2-level/w2.png" alt="">
+          <img class="mob" data-in="assets/2-level/mob/w2in.png" data-out="assets/2-level/mob/w2.png"
+            src="assets/2-level/mob/w2.png" alt="">
+          <div data-hitbox="red" class="hitbox"></div>
+        </div>
+
+        <div class="wire" data-play="put2" data-offset="1.4">
+          <img data-in="assets/2-level/w3in.png" data-out="assets/2-level/w3.png" src="assets/2-level/w3.png" alt="">
+          <img class="mob" data-in="assets/2-level/mob/w3in.png" data-out="assets/2-level/mob/w3.png"
+            src="assets/2-level/mob/w3.png" alt="">
+          <div data-hitbox="blue-light" class="hitbox"></div>
+        </div>
+
+        <div class="wire" data-play="put2" data-offset="0.75" data-offset-mob="0.9">
+          <img data-in="assets/2-level/w4in.png" data-out="assets/2-level/w4.png" src="assets/2-level/w4.png" alt="">
+          <img class="mob" data-in="assets/2-level/mob/w4in.png" data-out="assets/2-level/mob/w4.png"
+            src="assets/2-level/mob/w4.png" alt="">
+          <div data-hitbox="black" class="hitbox"></div>
+        </div>
+
+        <div class="wire" data-play="put2" data-offset="0.9" data-offset-mob="1.1">
+          <img data-in="assets/2-level/w5in.png" data-out="assets/2-level/w5.png" src="assets/2-level/w5.png" alt="">
+          <img class="mob" data-in="assets/2-level/mob/w5in.png" data-out="assets/2-level/mob/w5.png"
+            src="assets/2-level/mob/w5.png" alt="">
+          <div data-hitbox="orange" class="hitbox"></div>
+        </div>
+      </div>
+
+      <img class="hand" src="assets/hand.png" alt="">
+      <div class="adapter">
+
+        <img class="block" src="assets/2-level/adapt.png" alt="">
+        <img class="block mob" src="assets/2-level/mob/adapt.png" alt="">
+        <img class="indicator" src="assets/2-level/off.png" alt="">
+
+        <div class="hitboxs">
+          <div data-hitbox="blue" class="hitbox"></div>
+          <div data-hitbox="red" class="hitbox"></div>
+          <div data-hitbox="blue-light" class="hitbox"></div>
+          <div data-hitbox="black" class="hitbox"></div>
+          <div data-hitbox="orange" class="hitbox"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="popup">
+      <div>
+        <img src="assets/Kitchen.png" alt="Логотип игры" />
+        <h2>Find Sort Match</h2>
+        <button id="download-btn">Play Now</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const popup = document.getElementById('popup')
+    const buttonDownload = popup.querySelector('button')
+    buttonDownload.addEventListener('click', () => {
+      FbPlayableAd.onCTAClick()
+    })
+
+    const audios = document.querySelectorAll('audio')
+    audios.forEach(audio => audio.volume = 0.45)
+
+    const levels = document.querySelectorAll('.level')
+    function selectLevel(id) {
+      levels.forEach(level => {
+        if (level.id === id) {
+          level.style.display = 'flex'
+        } else {
+          level.style.display = 'none'
+        }
+      })
+    }
+
+    function isIntersecting(el1, el2) {
+      const rect1 = el1.getBoundingClientRect();
+      const rect2 = el2.getBoundingClientRect();
+
+      return !(
+        rect1.right < rect2.left ||
+        rect1.left > rect2.right ||
+        rect1.bottom < rect2.top ||
+        rect1.top > rect2.bottom
+      );
+    }
+
+    function handTutorial(hand, position) {
+
+      hand.style.left = position.leftStart
+      hand.style.top = position.topStart
+
+
+      setTimeout(() => {
+        hand.style.transition = "all 1s ease 0s"
+
+        hand.style.left = position.leftEnd
+        hand.style.top = position.topEnd
+
+        setTimeout(() => {
+          hand.style.left = position.leftStart
+          hand.style.top = position.topStart
+
+          setTimeout(() => {
+            hand.style.left = position.leftEnd
+            hand.style.top = position.topEnd
+
+            setTimeout(() => {
+              hand.style.opacity = 0
+              setTimeout(() => {
+                hand.style.zIndex = -100
+              }, 500);
+            }, 500);
+          }, 1000);
+        }, 1000);
+      }, 1000);
+
+    }
+
+    //  LEVEL 1 
+    function level1() {
+      const level = document.querySelector('#level1')
+
+      handTutorial(level.querySelector('.hand'),
+        {
+          leftStart: '47%',
+          topStart: '100%',
+          leftEnd: '47%',
+          topEnd: '150%',
+        })
+
+      const papers = document.querySelectorAll('.paper')
+      const paperAudio = document.querySelector('[data-sound="paper"]')
+
+      let checkWinn
+
+      papers.forEach(paper => {
+        paper.addEventListener('click', () => {
+
+          if (paper.dataset.clicked === "true") {
+            return
+          }
+
+          paper.style.transform = 'scale(1.2)'
+
+          setTimeout(() => {
+            paper.style.transform = 'scale(1)'
+          }, 40);
+
+          paper.style.top = "250vw"
+
+          paperAudio.play()
+          paper.dataset.clicked = true
+
+          setTimeout(() => {
+            document.querySelector(`[data-sound="${paper.dataset.play}"]`).play()
+          }, 150);
+
+          if (checkWinn) {
+            clearTimeout(checkWinn);
+          }
+
+          checkWinn = setTimeout(() => {
+            let count = 0
+            papers.forEach(p => {
+              if (p.dataset.clicked) {
+                count++
+              }
+            })
+
+            if (count === 6) {
+              selectLevel('level2')
+              level2()
+            }
+
+          }, 1500);
+        })
+      })
+    }
+    level1()
+
+    // LEVEL 2
+    function level2() {
+      const level = document.querySelector('#level2')
+      const wires = level.querySelectorAll('.wire')
+      const takeAudio = level.querySelector('[data-sound="take"]')
+      const indicator = level.querySelector('.indicator')
+
+      if (window.innerWidth <= 1070) {
+        handTutorial(level.querySelector('.hand'),
+          {
+            leftStart: '31%',
+            topStart: '65%',
+            leftEnd: '80vw',
+            topEnd: '79%',
+          })
+      } else {
+        handTutorial(level.querySelector('.hand'),
+          {
+            leftStart: '23%',
+            topStart: '30%',
+            leftEnd: '18%',
+            topEnd: '75%',
+          })
+      }
+      wires.forEach(wire => {
+        const hitbox = wire.querySelector('.hitbox')
+        const imgs = wire.querySelectorAll('img')
+
+        // Drag and drop       
+        function dragDrop(e) {
+          e.preventDefault()
+
+          takeAudio.play()
+
+          wire.dataset.active = false
+          wire.style.transform = 'none'
+          wire.style.zIndex = 6
+
+          imgs.forEach(img => img.src = img.dataset.out)
+
+          const rect = wire.getBoundingClientRect();
+          let offsetX = e.clientX - rect.left;
+          let offsetY = e.clientY - rect.top;
+
+          if (e.touches) {
+            offsetX = e.touches[0].clientX - rect.left;
+            offsetY = e.touches[0].clientY - rect.top;
+          } else {
+            offsetX = e.clientX - rect.left;
+            offsetY = e.clientY - rect.top;
+          }
+
+          function moveAt(e) {
+
+            if (e.touches) {
+              wire.style.left = e.touches[0].pageX - offsetX + 'px';
+              wire.style.top = e.touches[0].pageY - offsetY + 'px';
+            } else {
+              wire.style.left = e.pageX - offsetX + 'px';
+              wire.style.top = e.pageY - offsetY + 'px';
+            }
+          }
+
+          document.onmousemove = document.ontouchmove = function (e) {
+            moveAt(e);
+          }
+
+          document.onmouseup = document.ontouchend = function () {
+            document.onmousemove = document.ontouchmove = null
+            document.onmouseup = document.ontouchend = null
+
+
+            // Check overlap
+            const otherHitbox = Array.from(level.querySelectorAll(`[data-hitbox="${hitbox.dataset.hitbox}"]`)).filter(ht => ht !== hitbox)[0]
+
+            if (isIntersecting(hitbox, otherHitbox)) {
+              const otherHitboxRect = otherHitbox.getBoundingClientRect()
+              imgs.forEach(img => img.src = img.dataset.in)
+
+              level.querySelector(`[data-sound="${wire.dataset.play}"]`).play()
+
+              if (window.innerWidth <= 1070) {
+                wire.style.left = otherHitboxRect.x - wire.offsetWidth + otherHitbox.offsetWidth * (wire.dataset.offsetMob ? wire.dataset.offsetMob : wire.dataset.offset ? wire.dataset.offset : 1) + 'px';
+                wire.style.top = otherHitboxRect.y + (otherHitbox.offsetHeight / 2) - (wire.offsetHeight / 2) + 'px';
+              } else {
+                wire.style.left = otherHitboxRect.x + (otherHitbox.offsetWidth / 2) - (wire.offsetWidth / 2) + 'px';
+                wire.style.top = otherHitboxRect.y - wire.offsetHeight + otherHitbox.offsetHeight * (wire.dataset.offset ? wire.dataset.offset : 1) + 'px';
+
+              }
+
+              wire.style.zIndex = 1
+              wire.dataset.active = true
+
+              if (level.querySelectorAll('[data-active="true"]').length === 5) {
+                indicator.src = 'assets/2-level/on.png'
+                level.style.pointerEvents = 'none'
+                popup.classList.add('active')
+              }
+
+            } else {
+              wire.style.transform = null
+              wire.style.zIndex = 5
+            }
+
+          }
+        }
+
+        hitbox.onmousedown = hitbox.ontouchstart = dragDrop
+      })
+
+
+
+
+
+    }
+
+  </script>
+</body>
+
+</html>
