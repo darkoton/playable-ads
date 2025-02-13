@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Playable-2</title>
+  <title>Playable-3</title>
 
   <style>
     html,
@@ -151,74 +151,99 @@
     /* LEVEL 1 */
 
     #level1 {
-      background: url('assets/1-level/bg.png') 0 0/ cover no-repeat;
+      background: url('assets/1-level/bg.jpg') 0 0/ cover no-repeat;
       position: relative;
-      padding: 30px 0px;
     }
 
-    #level1 .cans {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      max-width: 745px;
-    }
-
-    #level1 .cans img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    #level1 img {
       object-fit: contain;
     }
 
-
-    #level1 .cans .hitbox {
+    #level1 .main {
       position: absolute;
-      background-color: red;
-      z-index: -1;
-    }
-
-    #level1 .cans .hitbox.footer {
-      position: absolute;
-      width: 67%;
-      height: 2%;
-      top: 67%;
+      /* width: 100%; */
+      /* max-width: 40%; */
+      /* max-height: 1043px; */
+      height: 100%;
+      top: 50%;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translate(-50%, -50%);
+      background-color: green;
     }
 
-    #level1 .cans .hitbox.wall {
-      width: 0.5%;
-      height: 42%;
-      top: 25%;
+    #level1 .main img {
+      width: 100%;
+      /* height: 100%; */
     }
 
-    #level1 .cans .hitbox.wall:nth-child(1) {
-      left: 17.5%;
+    #level1 .hitboxes .hitbox {
+      position: absolute;
+      background-color: rgba(255, 0, 0, 0.4);
+      width: 6.2vw;
+      height: 6.2vw;
+      z-index: 1;
     }
 
-    #level1 .cans .hitbox.wall:nth-child(2) {
-      left: 37%;
+    #level1 .hitboxes :nth-child(1) {
+      left: 13.5vw;
+      top: 10vw;
     }
 
-    #level1 .cans .hitbox.wall:nth-child(3) {
+    #level1 .hitboxes :nth-child(2) {
+      left: 18.8vw;
+      top: 13.5vw;
+
+    }
+
+    #level1 .hitboxes :nth-child(3) {
+      left: 25vw;
+      top: 16vw;
+    }
+
+    #level1 .hitboxes :nth-child(4) {
+      left: 31.5vw;
+      top: 17.5vw;
+    }
+
+    #level1 .hitboxes :nth-child(5) {
+      left: 38vw;
+      top: 17vw;
+    }
+
+
+    #level1 .corns img {
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 6.2vw;
+      height: 6.2vw;
+      transform: scale(0.9);
+    }
+
+    #level1 .corns img:nth-child(1) {
+      top: 30%;
+      left: 70%;
+    }
+
+    #level1 .corns img:nth-child(2) {
+      top: 70%;
+      left: 20%;
+    }
+
+    #level1 .corns img:nth-child(3) {
+      top: 65%;
+      left: 100%;
+    }
+
+    #level1 .corns img:nth-child(4) {
+      top: 40%;
+      left: -10%;
+    }
+
+    #level1 .corns img:nth-child(5) {
+      top: 10%;
       left: 40%;
-    }
-
-    #level1 .cans .hitbox.wall:nth-child(4) {
-      left: 60%;
-    }
-
-    #level1 .cans .hitbox.wall:nth-child(5) {
-      left: 62.6%;
-    }
-
-    #level1 .cans .hitbox.wall:nth-child(6) {
-      left: 82%;
     }
   </style>
 </head>
@@ -226,16 +251,26 @@
 <body>
   <div class="game">
     <div class="level" id="level1">
-      <div class="cans">
-        <div class="hitbox wall"></div>
-        <div class="hitbox wall"></div>
-        <div class="hitbox wall"></div>
-        <div class="hitbox wall"></div>
-        <div class="hitbox wall"></div>
-        <div class="hitbox wall"></div>
-        <div class="hitbox footer"></div>
-        <img class="back" src="assets/1-level/Cans_back.png" alt="">
-        <img class="front" src="assets/1-level/Cans_front.png" alt="">
+      <div class="main">
+
+        <div class="hitboxes">
+          <div data-hitbox="1" class="hitbox"></div>
+          <div data-hitbox="2" class="hitbox"></div>
+          <div data-hitbox="3" class="hitbox"></div>
+          <div data-hitbox="4" class="hitbox"></div>
+          <div data-hitbox="5" class="hitbox"></div>
+        </div>
+
+        <img src="assets/1-level/goroh1.png" alt="">
+
+      </div>
+
+      <div class="corns">
+        <img data-hitbox="1" src="assets/1-level/goroh2.png" alt="">
+        <img data-hitbox="2" src="assets/1-level/goroh2.png" alt="">
+        <img data-hitbox="3" src="assets/1-level/goroh2.png" alt="">
+        <img data-hitbox="4" src="assets/1-level/goroh2.png" alt="">
+        <img data-hitbox="5" src="assets/1-level/goroh2.png" alt="">
       </div>
     </div>
 
@@ -259,8 +294,8 @@
       FbPlayableAd.onCTAClick()
     })
 
-    const audios = document.querySelectorAll('audio')
-    audios.forEach(audio => audio.volume = 0.45)
+    // const audios = document.querySelectorAll('audio')
+    // audios.forEach(audio => audio.volume = 0.45)
 
     const levels = document.querySelectorAll('.level')
     function selectLevel(id) {
@@ -320,63 +355,95 @@
     //  LEVEL 1 
     function level1() {
       const level = document.querySelector('#level1')
+      const main = level.querySelector('.main')
+      const corns = level.querySelectorAll('.corns > img')
+      // const takeAudio = level.querySelector('[data-sound="take"]')
 
-      handTutorial(level.querySelector('.hand'),
-        {
-          leftStart: '47%',
-          topStart: '100%',
-          leftEnd: '47%',
-          topEnd: '150%',
-        })
 
-      const papers = document.querySelectorAll('.paper')
-      const paperAudio = document.querySelector('[data-sound="paper"]')
+      // handTutorial(level.querySelector('.hand'),
+      //   {
+      //     leftStart: '23%',
+      //     topStart: '30%',
+      //     leftEnd: '18%',
+      //     topEnd: '75%',
+      //   })
 
-      let checkWinn
+      corns.forEach(corn => {
+        // Drag and drop       
+        function dragDrop(e) {
+          e.preventDefault()
 
-      papers.forEach(paper => {
-        paper.addEventListener('click', () => {
+          // takeAudio.play()
 
-          if (paper.dataset.clicked === "true") {
-            return
+          corn.dataset.active = false
+          corn.style.transform = 'none'
+          corn.style.zIndex = 6
+
+          const rect = corn.getBoundingClientRect();
+          let offsetX
+          let offsetY
+
+          if (e.touches) {
+            offsetX = e.touches[0].clientX - rect.left;
+            offsetY = e.touches[0].clientY - rect.top;
+          } else {
+            offsetX = e.clientX - rect.left;
+            offsetY = e.clientY - rect.top;
           }
 
-          paper.style.transform = 'scale(1.2)'
 
-          setTimeout(() => {
-            paper.style.transform = 'scale(1)'
-          }, 40);
+          function moveAt(e) {
 
-          paper.style.top = "250vw"
-
-          paperAudio.play()
-          paper.dataset.clicked = true
-
-          setTimeout(() => {
-            document.querySelector(`[data-sound="${paper.dataset.play}"]`).play()
-          }, 150);
-
-          if (checkWinn) {
-            clearTimeout(checkWinn);
+            if (e.touches) {
+              corn.style.left = e.touches[0].pageX - offsetX + 'px';
+              corn.style.top = e.touches[0].pageY - offsetY + 'px';
+            } else {
+              corn.style.left = e.pageX - offsetX + 'px';
+              corn.style.top = e.pageY - offsetY + 'px';
+            }
           }
 
-          checkWinn = setTimeout(() => {
-            let count = 0
-            papers.forEach(p => {
-              if (p.dataset.clicked) {
-                count++
+          document.onmousemove = document.ontouchmove = function (e) {
+            moveAt(e);
+          }
+
+          document.onmouseup = document.ontouchend = function () {
+            document.onmousemove = document.ontouchmove = null
+            document.onmouseup = document.ontouchend = null
+
+
+            // Check overlap
+            const otherHitbox = Array.from(level.querySelectorAll(`[data-hitbox="${corn.dataset.hitbox}"]`)).filter(ht => ht !== corn)[0]
+
+            if (isIntersecting(corn, otherHitbox)) {
+              const otherHitboxRect = otherHitbox.getBoundingClientRect()
+
+              level.querySelector(`[data-sound="${corn.dataset.play}"]`).play()
+
+              corn.style.left = otherHitboxRect.x;
+              corn.style.top = otherHitboxRect.y;
+
+              corn.style.zIndex = 1
+              corn.dataset.active = true
+
+              if (level.querySelectorAll('[data-active="true"]').length === 5) {
+                indicator.src = 'assets/2-level/on.png'
+                level.style.pointerEvents = 'none'
+                popup.classList.add('active')
               }
-            })
 
-            if (count === 6) {
-              selectLevel('level2')
+            } else {
+              corn.style.transform = null
+              corn.style.zIndex = 5
             }
 
-          }, 1500);
-        })
+          }
+        }
+
+        corn.onmousedown = corn.ontouchstart = dragDrop
       })
     }
-    // level1()
+    level1()
 
     // LEVEL 2
     function level2() {
@@ -487,14 +554,7 @@
 
         hitbox.onmousedown = hitbox.ontouchstart = dragDrop
       })
-
-
-
-
-
     }
-
-    // level2()
 
   </script>
 </body>
