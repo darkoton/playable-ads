@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playable-4</title>
+
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      user-select: none;
+    }
+
+    body {
+      background-color: #222;
+      overflow: hidden;
+    }
+
+    .game {
+      height: 100%;
+      width: 100%;
+    }
+
+    .level {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .hand {
+      position: absolute;
+      width: 8vw !important;
+      z-index: 10;
+      left: 0%;
+      top: 0%;
+    }
+
+    /* POPUP */
+
+    #popup {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      top: 50%;
+      left: 50%;
+      z-index: 300;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 100%;
+      height: 80%;
+      max-width: 670px;
+      background: url("assets/popup-bg.jpg") center / cover no-repeat;
+      color: #333;
+      flex-direction: column;
+      justify-content: center;
+
+      padding: 30px;
+      font-size: 3em;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      overflow: auto;
+
+    }
+
+    @media(max-width: 680px) {
+      #popup {
+        height: 100%;
+      }
+    }
+
+    #popup.active {
+      display: flex;
+    }
+
+    #popup div {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+    #popup img {
+      width: 100%;
+      max-width: 150px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      border: 1px solid #fff;
+      margin-bottom: 30px;
+    }
+
+    #popup h2 {
+      margin: 20px 0;
+      font-size: 1.3em;
+      text-transform: uppercase;
+      color: #ffffff;
+      font-family: sans-serif;
+    }
+
+    #popup button {
+      padding: 20px 30px;
+      color: #624060;
+      background: url('assets/button-bg.jpg');
+      border: 0;
+      cursor: pointer;
+      stroke: 0;
+      font-size: 1.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border-radius: 1000px;
+      /* box-shadow: 0 0 20px 1px rgb(203, 72, 207); */
+      animation: pulse 1s ease 0s infinite alternate;
+    }
+
+    @media (max-width:670px) {
+      #popup {
+        padding: 5vw;
+      }
+
+      #popup h2 {
+        margin: 3vw 0;
+        font-size: 9vw;
+      }
+
+      #popup button {
+        padding: 3vw 4vw;
+        font-size: 8vw;
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(0.95);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* LEVEL 1 */
+
+    #level1 {
+      background: url('assets/1-level/bg.jpg') 0 0/ cover no-repeat;
+      position: relative;
+      padding: 30px 0px;
+    }
+
+    #level1 .full-panel {
+      width: 100%;
+      max-width: 40%;
+      position: relative;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #level1 .panel {
+      width: 100%;
+      object-fit: contain;
+    }
+
+    #level1 .shild {
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: all 2s ease-in-out 0s;
+    }
+
+    #level1 .shild.active {
+      top: 100vh;
+    }
+
+    #level1 .wires img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 7.5%;
+      transform: rotate(90deg) translateX(50%);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="game">
+    <div class="level" id="level1">
+      <audio data-sound="take" src="assets/1-level/audio/вытащили шнур.mp3"></audio>
+      <audio data-sound="put" src="assets/1-level/audio/засунули шнур.mp3"></audio>
+      <audio data-sound="sparks" src="assets/1-level/audio/щиток-искрится.mp3"></audio>
+
+      <div class="full-panel">
+        <img class="panel" src="assets/1-level/b1.png" alt="">
+        <img class="shild" src="assets/1-level/b2.png" alt="">
+
+        <div class="wires">
+          <img src="assets/1-level/p11.png" alt="">
+          <!-- <img src="assets/1-level/p12.png" alt="">
+          <img src="assets/1-level/p13.png" alt="">
+          <img src="assets/1-level/p14.png" alt="">
+          <img src="assets/1-level/p15.png" alt="">
+          <img src="assets/1-level/p16.png" alt="">
+          <img src="assets/1-level/p17.png" alt=""> -->
+        </div>
+      </div>
+    </div>
+
+    <div id="popup">
+      <div>
+        <img src="assets/Kitchen.png" alt="Логотип игры" />
+        <h2>Find Sort Match</h2>
+        <button id="download-btn">Play Now</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const popup = document.getElementById('popup')
+    const buttonDownload = popup.querySelector('button')
+    buttonDownload.addEventListener('click', () => {
+      FbPlayableAd.onCTAClick()
+    })
+
+    const audios = document.querySelectorAll('audio')
+    audios.forEach(audio => audio.volume = 0.45)
+
+    const levels = document.querySelectorAll('.level')
+    function selectLevel(id) {
+      levels.forEach(level => {
+        if (level.id === id) {
+          level.style.display = null
+        } else {
+          level.style.display = 'none'
+        }
+      })
+    }
+
+    function isIntersecting(el1, ...elements) {
+      const rect1 = el1.getBoundingClientRect();
+      let maxIntersection = 0;
+      let bestMatch = false;
+
+      elements.forEach(el => {
+        const rect2 = el.getBoundingClientRect();
+
+        const xOverlap = Math.max(0, Math.min(rect1.right, rect2.right) - Math.max(rect1.left, rect2.left));
+        const yOverlap = Math.max(0, Math.min(rect1.bottom, rect2.bottom) - Math.max(rect1.top, rect2.top));
+
+        const intersectionArea = xOverlap * yOverlap;
+
+        if (intersectionArea > maxIntersection) {
+          maxIntersection = intersectionArea;
+          bestMatch = el;
+        }
+      });
+
+      return bestMatch;
+    }
+    function handTutorial(hand, position) {
+
+      hand.style.left = position.leftStart
+      hand.style.top = position.topStart
+
+
+      setTimeout(() => {
+        hand.style.transition = "all 1s ease 0s"
+
+        hand.style.left = position.leftEnd
+        hand.style.top = position.topEnd
+
+        setTimeout(() => {
+          hand.style.left = position.leftStart
+          hand.style.top = position.topStart
+
+          setTimeout(() => {
+            hand.style.left = position.leftEnd
+            hand.style.top = position.topEnd
+
+            setTimeout(() => {
+              hand.style.opacity = 0
+              setTimeout(() => {
+                hand.style.zIndex = -100
+              }, 500);
+            }, 500);
+          }, 1000);
+        }, 1000);
+      }, 1000);
+
+    }
+
+    // LEVEL 1
+    function level1() {
+      const level = document.querySelector('#level1')
+      const shild = level.querySelector('.shild')
+
+      setTimeout(() => {
+        shild.classList.add('active')
+      }, 200);
+
+      // const buttons = level.querySelectorAll('.button')
+      // const box = level.querySelector('.box')
+
+      const sparksAudio = level.querySelector(`[data-sound="sparks"]`)
+      sparksAudio.volume = 0.25
+      sparksAudio.play()
+
+      const takeAudio = level.querySelector(`[data-sound="take"]`)
+      const putAudio = level.querySelector(`[data-sound="put"]`)
+
+      sparksAudio.onended = () => {
+        sparksAudio.play()
+      }
+
+      setTimeout(() => {
+        document.onclick = document.ontouchstart = () => sparksAudio.play()
+      }, 2000);
+
+      // handTutorial(level.querySelector('.hand'),
+      //   {
+      //     leftStart: '41%',
+      //     topStart: '115%',
+      //     leftEnd: '14%',
+      //     topEnd: '45%',
+      //   })
+
+      // buttons.forEach(button => {
+      //   // Drag and drop       
+      //   function dragDrop(e) {
+      //     e.preventDefault()
+
+      //     takeAudio.play()
+
+      //     button.dataset.active = false
+      //     button.style.transform = 'none'
+      //     button.style.zIndex = 10
+
+      //     const boxRect = box.getBoundingClientRect();
+      //     const buttonRect = button.getBoundingClientRect();
+
+      //     let offsetX, offsetY;
+
+      //     if (e.touches) {
+      //       offsetX = e.touches[0].clientX - buttonRect.left;
+      //       offsetY = e.touches[0].clientY - buttonRect.top;
+      //     } else {
+      //       offsetX = e.clientX - buttonRect.left;
+      //       offsetY = e.clientY - buttonRect.top;
+      //     }
+
+      //     function moveAt(e) {
+      //       let x, y;
+
+      //       if (e.touches) {
+      //         x = e.touches[0].clientX - boxRect.left - offsetX;
+      //         y = e.touches[0].clientY - boxRect.top - offsetY;
+      //       } else {
+      //         x = e.clientX - boxRect.left - offsetX;
+      //         y = e.clientY - boxRect.top - offsetY;
+      //       }
+
+      //       button.style.left = `${x}px`;
+      //       button.style.top = `${y}px`;
+      //     }
+
+      //     document.onmousemove = document.ontouchmove = function (e) {
+      //       moveAt(e);
+      //     }
+
+      //     document.onmouseup = document.ontouchend = function (e) {
+      //       document.onmousemove = document.ontouchmove = null
+      //       document.onmouseup = document.ontouchend = null
+
+      //       putAudio.play()
+
+      //       // Check overlap
+      //       const hitboxes = level.querySelectorAll(`.hitboxes > [data-hitbox="${button.dataset.hitbox}"]`)
+      //       const hitbox = isIntersecting(button, ...hitboxes)
+
+      //       if (hitbox) {
+
+      //         button.dataset.active = true
+
+      //         if (level.querySelectorAll('.button[data-active="true"]').length === 9) {
+      //           level.style.pointerEvents = 'none'
+      //           popup.classList.add('active')
+      //         }
+
+
+      //         button.style.zIndex = Math.max(5, ...Array.from(level.querySelectorAll(`.button[data-hitbox="${button.dataset.hitbox}"][data-active="true"]`))
+      //           .filter(el => el !== button)
+      //           .map(el => el.style.zIndex)) + 1
+      //         button.dataset.active = true
+
+      //       } else {
+      //         button.style.zIndex = 10
+      //       }
+      //     }
+      //   }
+
+      //   button.onmousedown = button.ontouchstart = dragDrop
+      // })
+    }
+
+    level1()
+
+  </script>
+</body>
+
+</html>

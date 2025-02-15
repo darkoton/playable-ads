@@ -86,6 +86,10 @@
     #popup div {
       height: 100%;
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
 
@@ -179,35 +183,34 @@
 
     #level1 .hitboxes .hitbox {
       position: absolute;
-/*      background-color: rgba(255, 0, 0, 0.4);*/
       width: 9.9vw;
       height: 9.9vw;
       z-index: 1;
     }
 
     #level1 .hitboxes .hitbox:nth-child(1) {
-      left: 21.5vw;
-      top: 15.6vw;
+      left: 26%;
+      top: 35%;
     }
 
     #level1 .hitboxes .hitbox:nth-child(2) {
-      left: 30.3vw;
-      top: 21.4vw;
+      left: 37%;
+      top: 48%;
     }
 
     #level1 .hitboxes .hitbox:nth-child(3) {
-      left: 40vw;
-      top: 25.7vw;
+      left: 50%;
+      top: 56%;
     }
 
     #level1 .hitboxes .hitbox:nth-child(4) {
-      left: 50.5vw;
-      top: 27.5vw;
+      left: 63%;
+      top: 61%;
     }
 
     #level1 .hitboxes .hitbox:nth-child(5) {
-      left: 61vw;
-      top: 27.5vw;
+      left: 76%;
+      top: 60%;
     }
 
 
@@ -220,6 +223,7 @@
       height: 9.9vw;
       transform: scale(0.9);
       z-index: 5;
+      cursor: pointer;
     }
 
     #level1 .corns img:nth-child(1) {
@@ -422,6 +426,7 @@
       z-index: 5;
       transform: rotate(45deg);
       transition: transform 0.3s ease 0s;
+      cursor: pointer;
     }
 
     #level2 .butterflies img:nth-child(1){

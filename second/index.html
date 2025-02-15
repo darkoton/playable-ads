@@ -86,6 +86,10 @@
     #popup div {
       height: 100%;
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
 
@@ -163,7 +167,13 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      max-width: 80%;
+      max-width: 60%;
+    }
+
+    @media(max-width: 992px) {
+      #level1 .cans {
+        max-width: 90%;
+      }
     }
 
     #level1 .cans img {
@@ -193,7 +203,6 @@
       z-index: -1;
       width: 6%;
       height: 17%;
-      background-color: rgba(0, 255, 0, 0.2);
     }
 
     #level1 .cans .hitboxes .hitbox:nth-child(1) {
@@ -218,16 +227,16 @@
       top: 0;
       left: 0;
       z-index: 1;
+      cursor: pointer;
     }
 
     #level1 .thing [data-hitbox] {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 55%;
+      width: 70%;
       height: 50%;
       transform: translate(-50%, -50%);
-      background-color: rgba(255, 0, 0, 0.2);
       z-index: 2;
     }
 
@@ -242,8 +251,8 @@
     }
 
     #level1 .thing.coffee {
-      width: 9vw;
-      height: 9vw;
+      width: 11%;
+      height: 31%;
     }
 
     #level1 .static.coffee-1 {
@@ -273,23 +282,23 @@
 
     #level1 .thing.g-tea,
     #level1 .thing.r-tea {
-      width: 11vw;
-      height: 11vw;
+      width: 10%;
+      height: 40%;
     }
 
     #level1 .static.g-tea-1 {
       top: 50%;
-      left: 33%;
+      left: 36%;
     }
 
     #level1 .static.g-tea-2 {
       top: 54%;
-      left: 41%;
+      left: 43%;
     }
 
     #level1 .static.g-tea-3 {
       top: 51%;
-      left: 49%;
+      left: 52%;
     }
 
     #level1 .walking.g-tea-4 {
@@ -304,17 +313,17 @@
 
     #level1 .static.r-tea-1 {
       top: 50%;
-      left: 65%;
+      left: 68%;
     }
 
     #level1 .static.r-tea-2 {
       top: 54%;
-      left: 73%;
+      left: 75%;
     }
 
     #level1 .static.r-tea-3 {
       top: 51%;
-      left: 82%;
+      left: 83%;
     }
 
     #level1 .walking.r-tea-4 {
@@ -337,24 +346,149 @@
 
     #level2 .box {
       position: relative;
+      max-width: 50%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @media (max-width:992px) {
+      #level2 .box {
+        max-width: 70%;
+      }
+    }
+
+    @media (max-width:680px) {
+      #level2 .box {
+        max-width: 80%;
+      }
     }
 
     #level2 .box-img {
       width: 100%;
+      height: 100%;
     }
 
-    #level2 .spool {
-      width: 0%;
+    #level2 .spools .spool {
+      width: 22%;
       position: absolute;
       top: 0;
       left: 0;
+    }
+
+    #level2 .hitboxes .hitbox {
+      position: absolute;
+      width: 25%;
+      height: 85%;
+    }
+
+    #level2 .hitboxes .hitbox:nth-child(1) {
+      top: 8%;
+      left: 4.5%;
+    }
+
+    #level2 .hitboxes .hitbox:nth-child(2) {
+      top: 8%;
+      left: 37.8%;
+    }
+
+    #level2 .hitboxes .hitbox:nth-child(3) {
+      top: 8%;
+      left: 70.5%;
+    }
+
+    #level2 .spools .spool:nth-child(1) {
+      top: 6%;
+      left: 9%;
+    }
+
+    #level2 .spools .spool:nth-child(2) {
+      top: 6%;
+      left: 42.5%;
+    }
+
+    #level2 .spools .spool:nth-child(3) {
+      top: 6%;
+      left: 75.3%;
+    }
+
+    #level2 .buttons .button {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: transform 0.3s ease 0s;
+      transform: scale(0.9);
+      cursor: pointer;
+    }
+
+    #level2 .buttons .button img {
+      width: 100%;
+      height: 100%;
+    }
+
+    #level2 .buttons .red .button:nth-child(1) {
+      top: 105%;
+      left: 34%;
+      width: 19%;
+      transform: rotate(25deg);
+    }
+
+    #level2 .buttons .red .button:nth-child(2) {
+      top: 100%;
+      left: 4%;
+      width: 16%;
+      transform: rotate(25deg) scale(0.9);
+    }
+
+    #level2 .buttons .red .button:nth-child(3) {
+      top: 110%;
+      left: 74%;
+      width: 16%;
+    }
+
+    #level2 .buttons .blue .button:nth-child(1) {
+      top: 105%;
+      left: 24%;
+      width: 16%;
+    }
+
+    #level2 .buttons .blue .button:nth-child(2) {
+      top: 100%;
+      left: -10%;
+      width: 16%;
+    }
+
+    #level2 .buttons .blue .button:nth-child(3) {
+      top: 110%;
+      left: 86%;
+      width: 12%;
+      transform: rotate(-25deg);
+    }
+
+    #level2 .buttons .green .button:nth-child(1) {
+      top: 105%;
+      left: 50%;
+      width: 16%;
+    }
+
+    #level2 .buttons .green .button:nth-child(2) {
+      top: 109%;
+      left: 20%;
+      width: 12%;
+      transform: rotate(-25deg);
+    }
+
+    #level2 .buttons .green .button:nth-child(3) {
+      top: 110%;
+      left: 66%;
+      width: 12%;
     }
   </style>
 </head>
 
 <body>
   <div class="game">
-    <div class="level" id="level1" style="display: none;">
+    <div class="level" id="level1">
       <audio data-sound="coffee-take" src="assets/1-level/audio/капсулы кофе взяли.mp3"></audio>
       <audio data-sound="coffee-put" src="assets/1-level/audio/капсулы кофе положили.mp3"></audio>
       <audio data-sound="g-tea-take" src="assets/1-level/audio/чайный пакетк взяли 2.mp3"></audio>
@@ -455,32 +589,64 @@
 
     </div>
 
-    <div class="level" id="level2">
-      <audio data-sound="1-take" src="assets/2-level/audio/1 взять.mp3"></audio>
-      <audio data-sound="1-put" src="assets/2-level/audio/1 поставить.mp3"></audio>
-
-      <audio data-sound="2-take" src="assets/2-level/audio/2 взять.mp3"></audio>
-      <audio data-sound="2-put" src="assets/2-level/audio/2 поставить.mp3"></audio>
-
-      <audio data-sound="3-take" src="assets/2-level/audio/3 взять.mp3"></audio>
-      <audio data-sound="3-put" src="assets/2-level/audio/3 поставить.mp3"></audio>
-
-      <audio data-sound="4-take" src="assets/2-level/audio/4 взять.mp3"></audio>
-      <audio data-sound="4-put" src="assets/2-level/audio/4 поставить.mp3"></audio>
-
-      <audio data-sound="5-take" src="assets/2-level/audio/5 взять.mp3"></audio>
-      <audio data-sound="5-put" src="assets/2-level/audio/5 поставить.mp3"></audio>
-
-      <audio data-sound="6-take" src="assets/2-level/audio/6 взять.mp3"></audio>
-      <audio data-sound="6-put" src="assets/2-level/audio/6 поставить.mp3"></audio>
+    <div class="level" id="level2" style="display: none;">
+      <audio data-sound="take" src="assets/2-level/audio/take.mp3"></audio>
+      <audio data-sound="put" src="assets/2-level/audio/put.mp3"></audio>
 
       <div class="box">
+
+        <img class="hand" src="assets/hand.png" alt="">
+
         <img class="box-img" src="assets/2-level/box.png" alt="">
+
+        <div class="hitboxes">
+          <div data-hitbox="1" class="hitbox"></div>
+          <div data-hitbox="2" class="hitbox"></div>
+          <div data-hitbox="3" class="hitbox"></div>
+        </div>
 
         <div class="spools">
           <img src="assets/2-level/Spool1.png" alt="" class="spool">
           <img src="assets/2-level/Spool1 (1).png" alt="" class="spool">
           <img src="assets/2-level/Spool1 (2).png" alt="" class="spool">
+        </div>
+
+        <div class="buttons">
+          <div class="red">
+            <div data-hitbox="1" class="button">
+              <img src="assets/2-level/b-red-1.png" alt="" />
+            </div>
+            <div data-hitbox="1" class="button">
+              <img src="assets/2-level/b-red-2.png" alt="" />
+            </div>
+            <div data-hitbox="1" class="button">
+              <img src="assets/2-level/b-red-3.png" alt="" />
+            </div>
+          </div>
+
+          <div class="blue">
+            <div data-hitbox="2" class="button">
+              <img src="assets/2-level/b-blue-1.png" alt="" />
+            </div>
+            <div data-hitbox="2" class="button">
+              <img src="assets/2-level/b-blue-2.png" alt="" />
+            </div>
+            <div data-hitbox="2" class="button">
+              <img src="assets/2-level/b-blue-3.png" alt="" />
+            </div>
+          </div>
+
+          <div class="green">
+            <div data-hitbox="3" class="button">
+              <img src="assets/2-level/b-green-1.png" alt="" />
+            </div>
+            <div data-hitbox="3" class="button">
+              <img src="assets/2-level/b-green-2.png" alt="" />
+            </div>
+            <div data-hitbox="3" class="button">
+              <img src="assets/2-level/b-green-3.png" alt="" />
+            </div>
+          </div>
         </div>
 
       </div>
@@ -510,7 +676,7 @@
     function selectLevel(id) {
       levels.forEach(level => {
         if (level.id === id) {
-          level.style.display = 'flex'
+          level.style.display = null
         } else {
           level.style.display = 'none'
         }
@@ -573,7 +739,6 @@
     //  LEVEL 1 
     function level1() {
       const level = document.querySelector('#level1')
-      const main = level.querySelector('.main')
       const things = level.querySelectorAll('.thing.walking')
       const cans = level.querySelector('.cans-layer')
 
@@ -689,122 +854,101 @@
         thing.onmousedown = thing.ontouchstart = dragDrop
       })
     }
-    // level1()
+    level1()
 
     // LEVEL 2
     function level2() {
       const level = document.querySelector('#level2')
-      const wires = level.querySelectorAll('.wire')
-      const takeAudio = level.querySelector('[data-sound="take"]')
-      const indicator = level.querySelector('.indicator')
+      const buttons = level.querySelectorAll('.button')
+      const box = level.querySelector('.box')
 
-      if (window.innerWidth <= 1070) {
-        handTutorial(level.querySelector('.hand'),
-          {
-            leftStart: '31%',
-            topStart: '65%',
-            leftEnd: '80vw',
-            topEnd: '79%',
-          })
-      } else {
-        handTutorial(level.querySelector('.hand'),
-          {
-            leftStart: '23%',
-            topStart: '30%',
-            leftEnd: '18%',
-            topEnd: '75%',
-          })
-      }
-      wires.forEach(wire => {
-        const hitbox = wire.querySelector('.hitbox')
-        const imgs = wire.querySelectorAll('img')
+      const takeAudio = level.querySelector(`[data-sound="take"]`)
+      const putAudio = level.querySelector(`[data-sound="put"]`)
 
+      handTutorial(level.querySelector('.hand'),
+        {
+          leftStart: '41%',
+          topStart: '115%',
+          leftEnd: '14%',
+          topEnd: '45%',
+        })
+
+      buttons.forEach(button => {
         // Drag and drop       
         function dragDrop(e) {
           e.preventDefault()
 
           takeAudio.play()
 
-          wire.dataset.active = false
-          wire.style.transform = 'none'
-          wire.style.zIndex = 6
+          button.dataset.active = false
+          button.style.transform = 'none'
+          button.style.zIndex = 10
 
-          imgs.forEach(img => img.src = img.dataset.out)
+          const boxRect = box.getBoundingClientRect();
+          const buttonRect = button.getBoundingClientRect();
 
-          const rect = wire.getBoundingClientRect();
-          let offsetX = e.clientX - rect.left;
-          let offsetY = e.clientY - rect.top;
+          let offsetX, offsetY;
 
           if (e.touches) {
-            offsetX = e.touches[0].clientX - rect.left;
-            offsetY = e.touches[0].clientY - rect.top;
+            offsetX = e.touches[0].clientX - buttonRect.left;
+            offsetY = e.touches[0].clientY - buttonRect.top;
           } else {
-            offsetX = e.clientX - rect.left;
-            offsetY = e.clientY - rect.top;
+            offsetX = e.clientX - buttonRect.left;
+            offsetY = e.clientY - buttonRect.top;
           }
 
           function moveAt(e) {
+            let x, y;
 
             if (e.touches) {
-              wire.style.left = e.touches[0].pageX - offsetX + 'px';
-              wire.style.top = e.touches[0].pageY - offsetY + 'px';
+              x = e.touches[0].clientX - boxRect.left - offsetX;
+              y = e.touches[0].clientY - boxRect.top - offsetY;
             } else {
-              wire.style.left = e.pageX - offsetX + 'px';
-              wire.style.top = e.pageY - offsetY + 'px';
+              x = e.clientX - boxRect.left - offsetX;
+              y = e.clientY - boxRect.top - offsetY;
             }
+
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
           }
 
           document.onmousemove = document.ontouchmove = function (e) {
             moveAt(e);
           }
 
-          document.onmouseup = document.ontouchend = function () {
+          document.onmouseup = document.ontouchend = function (e) {
             document.onmousemove = document.ontouchmove = null
             document.onmouseup = document.ontouchend = null
 
+            putAudio.play()
 
             // Check overlap
-            const otherHitbox = Array.from(level.querySelectorAll(`[data-hitbox="${hitbox.dataset.hitbox}"]`)).filter(ht => ht !== hitbox)[0]
+            const hitboxes = level.querySelectorAll(`.hitboxes > [data-hitbox="${button.dataset.hitbox}"]`)
+            const hitbox = isIntersecting(button, ...hitboxes)
 
-            if (isIntersecting(hitbox, otherHitbox)) {
-              const otherHitboxRect = otherHitbox.getBoundingClientRect()
-              imgs.forEach(img => img.src = img.dataset.in)
+            if (hitbox) {
 
-              level.querySelector(`[data-sound="${wire.dataset.play}"]`).play()
+              button.dataset.active = true
 
-              if (window.innerWidth <= 1070) {
-                wire.style.left = otherHitboxRect.x - wire.offsetWidth + otherHitbox.offsetWidth * (wire.dataset.offsetMob ? wire.dataset.offsetMob : wire.dataset.offset ? wire.dataset.offset : 1) + 'px';
-                wire.style.top = otherHitboxRect.y + (otherHitbox.offsetHeight / 2) - (wire.offsetHeight / 2) + 'px';
-              } else {
-                wire.style.left = otherHitboxRect.x + (otherHitbox.offsetWidth / 2) - (wire.offsetWidth / 2) + 'px';
-                wire.style.top = otherHitboxRect.y - wire.offsetHeight + otherHitbox.offsetHeight * (wire.dataset.offset ? wire.dataset.offset : 1) + 'px';
-
-              }
-
-              wire.style.zIndex = 1
-              wire.dataset.active = true
-
-              if (level.querySelectorAll('[data-active="true"]').length === 5) {
-                indicator.src = 'assets/2-level/on.png'
+              if (level.querySelectorAll('.button[data-active="true"]').length === 9) {
                 level.style.pointerEvents = 'none'
                 popup.classList.add('active')
               }
 
-            } else {
-              wire.style.transform = null
-              wire.style.zIndex = 5
-            }
 
+              button.style.zIndex = Math.max(5, ...Array.from(level.querySelectorAll(`.button[data-hitbox="${button.dataset.hitbox}"][data-active="true"]`))
+                .filter(el => el !== button)
+                .map(el => el.style.zIndex)) + 1
+              button.dataset.active = true
+
+            } else {
+              button.style.zIndex = 10
+            }
           }
         }
 
-        hitbox.onmousedown = hitbox.ontouchstart = dragDrop
+        button.onmousedown = button.ontouchstart = dragDrop
       })
-
-
-
-
-
     }
 
     // level2()
