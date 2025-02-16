@@ -162,7 +162,7 @@
 
     #level1 .full-panel {
       width: 100%;
-      max-width: 40%;
+      max-width: 50%;
       position: relative;
       left: 50%;
       top: 50%;
@@ -172,6 +172,7 @@
     #level1 .panel {
       width: 100%;
       object-fit: contain;
+      pointer-events: none;
     }
 
     #level1 .shild {
@@ -182,18 +183,132 @@
       height: 100%;
       object-fit: contain;
       transition: all 2s ease-in-out 0s;
+      pointer-events: none;
+      z-index: 20;
     }
 
     #level1 .shild.active {
       top: 100vh;
     }
 
-    #level1 .wires img {
+    #level1 .wires .wire {
       position: absolute;
+      top: 11%;
+      height: 75%;
+      width: 5%;
+      transform-origin: top;
+    }
+
+    #level1 .wires .wire:nth-child(1) {
+      background: url('assets/1-level/p11.png') center/contain repeat-y;
+      left: 17%;
+      transform: rotate(-24.5deg);
+      height: 84%;
+    }
+
+    #level1 .wires .wire:nth-child(2) {
+      background: url('assets/1-level/p12.png') center/contain repeat-y;
+      left: 29%;
+      transform: rotate(13deg);
+      height: 80%;
+    }
+
+    #level1 .wires .wire:nth-child(3) {
+      background: url('assets/1-level/p13.png') center/contain repeat-y;
+      left: 41%;
+      transform: rotate(-34deg);
+      height: 93%;
+    }
+
+    #level1 .wires .wire:nth-child(4) {
+      background: url('assets/1-level/p14.png') center/contain repeat-y;
+      left: 53%;
+      transform: rotate(25deg);
+      height: 85%;
+    }
+
+    #level1 .wires .wire:nth-child(5) {
+      background: url('assets/1-level/p15.png') center/contain repeat-y;
+      left: 65%;
+      transform: rotate(-25deg);
+      height: 85%;
+
+    }
+
+    #level1 .wires .wire:nth-child(6) {
+      background: url('assets/1-level/p16.png') center/contain repeat-y;
+      left: 77%;
+      transform: rotate(13deg);
+      height: 80%;
+    }
+
+    #level1 .wires .wire:nth-child(7) {
+      background: url('assets/1-level/p17.png') center/contain repeat-y;
+      left: 89%;
+      transform: rotate(35deg);
+      height: 94%;
+    }
+
+    #level1 .wires .wire .hitbox {
+      position: absolute;
+      width: 100%;
+      height: 3vw;
+      /* background-color: red; */
+    }
+
+    #level1 .wires .wire .hitbox.hitbox-static {
       top: 0;
-      left: 0;
-      height: 7.5%;
-      transform: rotate(90deg) translateX(50%);
+    }
+
+    #level1 .wires .wire .hitbox.hitbox-move {
+      cursor: pointer;
+      bottom: 0;
+    }
+
+    #level1 .hitboxes .hitbox {
+      position: absolute;
+      width: 2.5vw;
+      height: 2.5vw;
+    }
+
+    #level1 .hitboxes .hitbox:nth-child(1) {
+      top: 81%;
+      left: 16.4%;
+    }
+
+    #level1 .hitboxes .hitbox:nth-child(2) {
+      top: 81%;
+      left: 28.4%;
+    }
+
+    #level1 .hitboxes .hitbox:nth-child(3) {
+      top: 81%;
+      left: 40.4%;
+    }
+
+    #level1 .hitboxes .hitbox:nth-child(4) {
+      top: 81%;
+      left: 52.4%;
+    }
+
+    #level1 .hitboxes .hitbox:nth-child(5) {
+      top: 81%;
+      left: 64.4%;
+    }
+
+    #level1 .hitboxes .hitbox:nth-child(6) {
+      top: 81%;
+      left: 76.4%;
+    }
+
+    #level1 .hitboxes .hitbox.hitbox:nth-child(7) {
+      top: 81%;
+      left: 88.4%;
+    }
+
+    #level1 .hitboxes .hitbox.hitbox:nth-child(8) {
+      top: 46%;
+      left: 5.4%;
     }
   </style>
 </head>
@@ -206,17 +321,60 @@
       <audio data-sound="sparks" src="assets/1-level/audio/щиток-искрится.mp3"></audio>
 
       <div class="full-panel">
+        <img src="assets/hand.png" alt="" class="hand">
+
         <img class="panel" src="assets/1-level/b1.png" alt="">
         <img class="shild" src="assets/1-level/b2.png" alt="">
 
+        <div class="hitboxes">
+          <div class="hitbox" data-active="true" data-hitbox="1"></div>
+          <div class="hitbox" data-active="true" data-hitbox="2"></div>
+          <div class="hitbox" data-active="true" data-hitbox="3"></div>
+          <div class="hitbox" data-active="true" data-hitbox="4"></div>
+          <div class="hitbox" data-active="true" data-hitbox="5"></div>
+          <div class="hitbox" data-active="true" data-hitbox="6"></div>
+          <div class="hitbox" data-active="true" data-hitbox="7"></div>
+          <div class="hitbox" data-hitbox="0"></div>
+
+        </div>
+
         <div class="wires">
-          <img src="assets/1-level/p11.png" alt="">
-          <!-- <img src="assets/1-level/p12.png" alt="">
-          <img src="assets/1-level/p13.png" alt="">
-          <img src="assets/1-level/p14.png" alt="">
-          <img src="assets/1-level/p15.png" alt="">
-          <img src="assets/1-level/p16.png" alt="">
-          <img src="assets/1-level/p17.png" alt=""> -->
+          <div class="wire" data-active="3">
+            <div class="hitbox hitbox-static"></div>
+
+            <div class="hitbox hitbox-move" data-hitbox="1"></div>
+          </div>
+          <div class="wire" data-active="1">
+            <div class="hitbox hitbox-static"></div>
+
+            <div class="hitbox hitbox-move" data-hitbox="2"></div>
+          </div>
+          <div class="wire" data-active="6">
+            <div class="hitbox hitbox-static"></div>
+
+            <div class="hitbox hitbox-move" data-hitbox="3"></div>
+          </div>
+          <div class="wire" data-active="2">
+            <div class="hitbox hitbox-static"></div>
+
+            <div class="hitbox hitbox-move" data-hitbox="4"></div>
+          </div>
+          <div class="wire" data-active="7">
+            <div class="hitbox hitbox-static"></div>
+
+            <div class="hitbox hitbox-move" data-hitbox="5"></div>
+          </div>
+          <div class="wire" data-active="5">
+            <div class="hitbox hitbox-static"></div>
+
+            <div class="hitbox hitbox-move" data-hitbox="6"></div>
+          </div>
+          <div class="wire" data-active="4">
+            <div class="hitbox hitbox-static"></div>
+
+            <div class="hitbox hitbox-move" data-hitbox="7"></div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -309,12 +467,24 @@
       const level = document.querySelector('#level1')
       const shild = level.querySelector('.shild')
 
+      const hand = level.querySelector('.hand')
+      hand.style.display = 'none'
       setTimeout(() => {
         shild.classList.add('active')
+
+        setTimeout(() => {
+          hand.style.display = 'block'
+          handTutorial(level.querySelector('.hand'),
+            {
+              leftStart: '38%',
+              topStart: '83%',
+              leftEnd: '3%',
+              topEnd: '49%',
+            })
+        }, 1200);
       }, 200);
 
-      // const buttons = level.querySelectorAll('.button')
-      // const box = level.querySelector('.box')
+
 
       const sparksAudio = level.querySelector(`[data-sound="sparks"]`)
       sparksAudio.volume = 0.25
@@ -331,13 +501,104 @@
         document.onclick = document.ontouchstart = () => sparksAudio.play()
       }, 2000);
 
-      // handTutorial(level.querySelector('.hand'),
-      //   {
-      //     leftStart: '41%',
-      //     topStart: '115%',
-      //     leftEnd: '14%',
-      //     topEnd: '45%',
-      //   })
+      const wires = level.querySelectorAll('.wire')
+      const hitboxes = level.querySelectorAll('.hitboxes > .hitbox')
+
+      wires.forEach(wire => {
+
+        const hitboxStatic = wire.querySelector(".hitbox-static");
+        const hitboxMove = wire.querySelector(".hitbox-move");
+
+        let isDragging = false;
+
+        hitboxMove.addEventListener("mousedown", (e) => {
+          takeAudio.play()
+          wire.style.transition = null
+          isDragging = true;
+          document.addEventListener("mousemove", onDrag);
+          document.addEventListener("mouseup", onRelease);
+        });
+
+        function onDrag(e) {
+          if (!isDragging) return;
+
+          const wireRect = wire.getBoundingClientRect();
+          const staticRect = hitboxStatic.getBoundingClientRect();
+
+          // Центр точки крепления
+          const staticX = staticRect.left + staticRect.width / 2;
+          const staticY = staticRect.top + staticRect.height / 2;
+
+          // Позиция курсора
+          const mouseX = e.clientX;
+          const mouseY = e.clientY;
+
+          // Вычисляем угол поворота
+          const angle = Math.atan2(mouseY - staticY, mouseX - staticX);
+          const degrees = angle * (180 / Math.PI) - 90; // Смещение, чтобы провод висел вниз
+
+          // Вычисляем новую длину
+          const distance = Math.sqrt((mouseX - staticX) ** 2 + (mouseY - staticY + staticRect.height) ** 2);
+
+          // Обновляем стили провода
+          wire.style.transform = `rotate(${degrees}deg)`;
+          wire.style.height = `${distance}px`;
+        }
+
+        function onRelease() {
+          putAudio.play()
+
+          const port = isIntersecting(hitboxMove, ...hitboxes)
+          if (port && port.dataset.active !== 'true') {
+            const portRect = port.getBoundingClientRect();
+            const portCenterX = portRect.left + portRect.width / 2;
+            const portCenterY = portRect.top + portRect.height / 2;
+
+            const wireRect = wire.getBoundingClientRect();
+            const staticRect = hitboxStatic.getBoundingClientRect();
+
+            // Центр точки крепления
+            const staticX = staticRect.left + staticRect.width / 2;
+            const staticY = staticRect.top + staticRect.height / 2;
+
+            // Позиция курсора
+            const mouseX = portCenterX;
+            const mouseY = portCenterY;
+
+            // Вычисляем угол поворота
+            const angle = Math.atan2(mouseY - staticY, mouseX - staticX);
+            const degrees = angle * (180 / Math.PI) - 90; // Исправляем зеркальность
+
+            // Вычисляем новую длину
+            const distance = Math.sqrt((mouseX - staticX) ** 2 + (mouseY - staticY + staticRect.height / 1.5) ** 2);
+
+            // Обновляем стили провода
+            wire.dataset.transform = wire.style.transform = `rotate(${degrees}deg)`;
+            wire.dataset.height = wire.style.height = `${distance}px`;
+
+            level.querySelector(`[data-hitbox="${wire.dataset.active}"]`).dataset.active = false
+            wire.dataset.active = port.dataset.hitbox
+            port.dataset.active = true
+
+            const checkWinn = (el) => el.dataset.active === el.querySelector('.hitbox-move').dataset.hitbox
+
+
+            if (Array.from(level.querySelectorAll('.wire')).every(checkWinn)) {
+              level.style.pointerEvents = 'none'
+              popup.classList.add('active')
+            }
+          } else {
+            wire.style.transition = 'all 0.3s ease 0s'
+
+            wire.style.transform = wire.dataset.transform || null
+            wire.style.height = wire.dataset.height || null;
+          }
+
+          isDragging = false;
+          document.removeEventListener("mousemove", onDrag);
+          document.removeEventListener("mouseup", onRelease);
+        }
+      })
 
       // buttons.forEach(button => {
       //   // Drag and drop       
@@ -418,6 +679,7 @@
     }
 
     level1()
+
 
   </script>
 </body>
