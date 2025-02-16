@@ -198,21 +198,21 @@
 
     #level1 .cans {
       width: 100%;
-      height: 100%;
+      /* height: 100%; */
       position: relative;
       top: 50%;
       left: 50%;
       -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
-      max-width: 60%;
+      max-width: 135vh;
     }
 
-    @media(max-width: 992px) {
+    /* @media(max-width: 992px) {
       #level1 .cans {
         max-width: 90%;
       }
-    }
+    } */
 
     #level1 .cans img {
       position: absolute;
@@ -225,7 +225,6 @@
 
     #level1 .cans-layer {
       position: relative;
-      top: 20%;
     }
 
     #level1 .cans .back {
@@ -241,22 +240,21 @@
       position: absolute;
       z-index: -1;
       width: 6%;
-      height: 17%;
+      height: 42%;
+      top: -33%;
+
     }
 
     #level1 .cans .hitboxes .hitbox:nth-child(1) {
       left: 15%;
-      top: 0;
     }
 
     #level1 .cans .hitboxes .hitbox:nth-child(2) {
       left: 46%;
-      top: 0;
     }
 
     #level1 .cans .hitboxes .hitbox:nth-child(3) {
       left: 77%;
-      top: 0;
     }
 
     #level1 .thing {
@@ -390,7 +388,7 @@
 
     #level2 .box {
       position: relative;
-      max-width: 50%;
+      max-width: 105vh;
       left: 50%;
       top: 50%;
       -webkit-transform: translate(-50%, -50%);
