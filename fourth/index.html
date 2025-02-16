@@ -16,7 +16,11 @@
     * {
       padding: 0;
       margin: 0;
+      -webkit-box-sizing: border-box;
       box-sizing: border-box;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
       user-select: none;
     }
 
@@ -55,6 +59,8 @@
       top: 50%;
       left: 50%;
       z-index: 300;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
       text-align: center;
       width: 100%;
@@ -62,12 +68,18 @@
       max-width: 670px;
       background: url("assets/popup-bg.jpg") center / cover no-repeat;
       color: #333;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
       flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
       justify-content: center;
 
       padding: 30px;
       font-size: 3em;
       border-radius: 10px;
+      -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
       overflow: auto;
 
@@ -80,15 +92,26 @@
     }
 
     #popup.active {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
     }
 
     #popup div {
       height: 100%;
       width: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
       flex-direction: column;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
       align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
       justify-content: center;
     }
 
@@ -96,8 +119,6 @@
     #popup img {
       width: 100%;
       max-width: 150px;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
       border-radius: 10px;
       border: 1px solid #fff;
       margin-bottom: 30px;
@@ -123,6 +144,7 @@
       font-weight: 600;
       border-radius: 1000px;
       /* box-shadow: 0 0 20px 1px rgb(203, 72, 207); */
+      -webkit-animation: pulse 1s ease 0s infinite alternate;
       animation: pulse 1s ease 0s infinite alternate;
     }
 
@@ -142,12 +164,26 @@
       }
     }
 
-    @keyframes pulse {
+    @-webkit-keyframes pulse {
       0% {
+        -webkit-transform: scale(0.95);
         transform: scale(0.95);
       }
 
       100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        -webkit-transform: scale(0.95);
+        transform: scale(0.95);
+      }
+
+      100% {
+        -webkit-transform: scale(1);
         transform: scale(1);
       }
     }
@@ -166,11 +202,14 @@
       position: relative;
       left: 50%;
       top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
     }
 
     #level1 .panel {
       width: 100%;
+      -o-object-fit: contain;
       object-fit: contain;
       pointer-events: none;
     }
@@ -181,7 +220,10 @@
       left: 0%;
       width: 100%;
       height: 100%;
+      -o-object-fit: contain;
       object-fit: contain;
+      -webkit-transition: all 2s ease-in-out 0s;
+      -o-transition: all 2s ease-in-out 0s;
       transition: all 2s ease-in-out 0s;
       pointer-events: none;
       z-index: 20;
@@ -196,12 +238,16 @@
       top: 11%;
       height: 75%;
       width: 5%;
+      -webkit-transform-origin: top;
+      -ms-transform-origin: top;
       transform-origin: top;
     }
 
     #level1 .wires .wire:nth-child(1) {
       background: url('assets/1-level/p11.png') center/contain repeat-y;
       left: 17%;
+      -webkit-transform: rotate(-24.5deg);
+      -ms-transform: rotate(-24.5deg);
       transform: rotate(-24.5deg);
       height: 84%;
     }
@@ -209,6 +255,8 @@
     #level1 .wires .wire:nth-child(2) {
       background: url('assets/1-level/p12.png') center/contain repeat-y;
       left: 29%;
+      -webkit-transform: rotate(13deg);
+      -ms-transform: rotate(13deg);
       transform: rotate(13deg);
       height: 80%;
     }
@@ -216,6 +264,8 @@
     #level1 .wires .wire:nth-child(3) {
       background: url('assets/1-level/p13.png') center/contain repeat-y;
       left: 41%;
+      -webkit-transform: rotate(-34deg);
+      -ms-transform: rotate(-34deg);
       transform: rotate(-34deg);
       height: 93%;
     }
@@ -223,6 +273,8 @@
     #level1 .wires .wire:nth-child(4) {
       background: url('assets/1-level/p14.png') center/contain repeat-y;
       left: 53%;
+      -webkit-transform: rotate(25deg);
+      -ms-transform: rotate(25deg);
       transform: rotate(25deg);
       height: 85%;
     }
@@ -230,6 +282,8 @@
     #level1 .wires .wire:nth-child(5) {
       background: url('assets/1-level/p15.png') center/contain repeat-y;
       left: 65%;
+      -webkit-transform: rotate(-25deg);
+      -ms-transform: rotate(-25deg);
       transform: rotate(-25deg);
       height: 85%;
 
@@ -238,6 +292,8 @@
     #level1 .wires .wire:nth-child(6) {
       background: url('assets/1-level/p16.png') center/contain repeat-y;
       left: 77%;
+      -webkit-transform: rotate(13deg);
+      -ms-transform: rotate(13deg);
       transform: rotate(13deg);
       height: 80%;
     }
@@ -245,6 +301,8 @@
     #level1 .wires .wire:nth-child(7) {
       background: url('assets/1-level/p17.png') center/contain repeat-y;
       left: 89%;
+      -webkit-transform: rotate(35deg);
+      -ms-transform: rotate(35deg);
       transform: rotate(35deg);
       height: 94%;
     }
@@ -383,7 +441,7 @@
       <div>
         <img draggable="false" src="assets/Kitchen.png" alt="Логотип игры" />
         <h2>Find Sort Match</h2>
-        <button id="download-btn">Play Now</button>
+        <button id="download-btn">Download</button>
       </div>
     </div>
   </div>
@@ -434,6 +492,7 @@
 
       hand.style.left = position.leftStart
       hand.style.top = position.topStart
+      hand.style.transition = "opacity 0.3s ease 0s"
 
 
       setTimeout(() => {
@@ -512,12 +571,17 @@
         let isDragging = false;
 
         hitboxMove.onmousedown = hitboxMove.ontouchstart = () => {
+          hand.style.opacity = 0
+          setTimeout(() => {
+            hand.style.zIndex = -100
+          }, 600);
+
           takeAudio.play()
           wire.style.transition = null
           isDragging = true;
           document.onmousemove = document.ontouchmove = onDrag;
           document.onmouseup = document.ontouchend = onRelease;
-      }
+        }
 
         function onDrag(e) {
           if (!isDragging) return;
@@ -536,7 +600,7 @@
           if (e.touches) {
             mouseX = e.touches[0].clientX;
             mouseY = e.touches[0].clientY;
-          }else{
+          } else {
             mouseX = e.clientX;
             mouseY = e.clientY;
           }
