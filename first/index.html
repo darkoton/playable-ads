@@ -16,7 +16,11 @@
     * {
       padding: 0;
       margin: 0;
+      -webkit-box-sizing: border-box;
       box-sizing: border-box;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
       user-select: none;
     }
 
@@ -57,9 +61,12 @@
       position: absolute;
       top: 25vh;
       left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
       width: 100%;
       max-width: 50%;
+      -o-object-fit: contain;
       object-fit: contain;
       z-index: 1;
     }
@@ -81,7 +88,11 @@
       width: 100%;
       max-width: 12.5%;
       z-index: 2;
+      -webkit-transition: top 3.5s ease-in-out 0s, -webkit-transform 0.03s ease 0s;
+      transition: top 3.5s ease-in-out 0s, -webkit-transform 0.03s ease 0s;
+      -o-transition: transform 0.03s ease 0s, top 3.5s ease-in-out 0s;
       transition: transform 0.03s ease 0s, top 3.5s ease-in-out 0s;
+      transition: transform 0.03s ease 0s, top 3.5s ease-in-out 0s, -webkit-transform 0.03s ease 0s;
       cursor: pointer;
     }
 
@@ -126,8 +137,14 @@
 
     #level2 {
       background: url('assets/2-level/bg.jpg') 0 0/ cover no-repeat;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
       justify-content: center;
+      -webkit-box-align: end;
+      -ms-flex-align: end;
       align-items: end;
       padding: 50px 0;
     }
@@ -190,14 +207,22 @@
     }
 
     .wire {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-align: end;
+      -ms-flex-align: end;
       align-items: end;
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
       justify-content: end;
       top: calc(100vh - 50vh - 80vw);
       /* bottom: 50vh; */
       left: 0;
       position: absolute;
       z-index: 4;
+      -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
       transform: scale(0.9);
       height: 80vw;
     }
@@ -208,6 +233,7 @@
       bottom: 0%;
       left: 0;
       width: 100%;
+      cursor: -webkit-grab;
       cursor: grab;
       /* background-color: rgba(255, 0, 0, 0.3); */
     }
@@ -273,6 +299,8 @@
       top: 45%;
       width: 3vw;
       max-width: 100%;
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
       transform: translateY(-50%);
     }
 
@@ -296,6 +324,8 @@
 
       #level2 {
         padding: 0;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
         justify-content: flex-end;
 
       }
@@ -349,6 +379,8 @@
         right: 45%;
         width: 3vh;
         max-width: 100%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
         transform: translateX(-50%);
       }
 
@@ -425,6 +457,8 @@
       top: 50%;
       left: 50%;
       z-index: 300;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
       text-align: center;
       width: 100%;
@@ -432,12 +466,18 @@
       max-width: 670px;
       background: url("assets/popup-bg.jpg") center / cover no-repeat;
       color: #333;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
       flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
       justify-content: center;
 
       padding: 30px;
       font-size: 3em;
       border-radius: 10px;
+      -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
       overflow: auto;
 
@@ -450,15 +490,26 @@
     }
 
     #popup.active {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
     }
 
     #popup div {
       height: 100%;
       width: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
       flex-direction: column;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
       align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
       justify-content: center;
     }
 
@@ -466,8 +517,6 @@
     #popup img {
       width: 100%;
       max-width: 150px;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
       border-radius: 10px;
       border: 1px solid #fff;
       margin-bottom: 30px;
@@ -493,6 +542,7 @@
       font-weight: 600;
       border-radius: 1000px;
       /* box-shadow: 0 0 20px 1px rgb(203, 72, 207); */
+      -webkit-animation: pulse 1s ease 0s infinite alternate;
       animation: pulse 1s ease 0s infinite alternate;
     }
 
@@ -512,12 +562,26 @@
       }
     }
 
-    @keyframes pulse {
+    @-webkit-keyframes pulse {
       0% {
+        -webkit-transform: scale(0.95);
         transform: scale(0.95);
       }
 
       100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        -webkit-transform: scale(0.95);
+        transform: scale(0.95);
+      }
+
+      100% {
+        -webkit-transform: scale(1);
         transform: scale(1);
       }
     }
@@ -559,35 +623,40 @@
 
       <div class="wires">
         <div class="wire" data-play="put1" data-offset="1.2">
-          <img draggable="false" data-in="assets/2-level/w1in.png" data-out="assets/2-level/w1.png" src="assets/2-level/w1.png" alt="">
+          <img draggable="false" data-in="assets/2-level/w1in.png" data-out="assets/2-level/w1.png"
+            src="assets/2-level/w1.png" alt="">
           <img draggable="false" class="mob" data-in="assets/2-level/mob/w1in.png" data-out="assets/2-level/mob/w1.png"
             src="assets/2-level/mob/w1.png" alt="">
           <div data-hitbox="blue" class="hitbox"></div>
         </div>
 
         <div class="wire" data-play="put1" data-offset="1.2">
-          <img draggable="false" data-in="assets/2-level/w2in.png" data-out="assets/2-level/w2.png" src="assets/2-level/w2.png" alt="">
+          <img draggable="false" data-in="assets/2-level/w2in.png" data-out="assets/2-level/w2.png"
+            src="assets/2-level/w2.png" alt="">
           <img draggable="false" class="mob" data-in="assets/2-level/mob/w2in.png" data-out="assets/2-level/mob/w2.png"
             src="assets/2-level/mob/w2.png" alt="">
           <div data-hitbox="red" class="hitbox"></div>
         </div>
 
         <div class="wire" data-play="put2" data-offset="1.4">
-          <img draggable="false" data-in="assets/2-level/w3in.png" data-out="assets/2-level/w3.png" src="assets/2-level/w3.png" alt="">
+          <img draggable="false" data-in="assets/2-level/w3in.png" data-out="assets/2-level/w3.png"
+            src="assets/2-level/w3.png" alt="">
           <img draggable="false" class="mob" data-in="assets/2-level/mob/w3in.png" data-out="assets/2-level/mob/w3.png"
             src="assets/2-level/mob/w3.png" alt="">
           <div data-hitbox="blue-light" class="hitbox"></div>
         </div>
 
         <div class="wire" data-play="put2" data-offset="0.75" data-offset-mob="0.9">
-          <img draggable="false" data-in="assets/2-level/w4in.png" data-out="assets/2-level/w4.png" src="assets/2-level/w4.png" alt="">
+          <img draggable="false" data-in="assets/2-level/w4in.png" data-out="assets/2-level/w4.png"
+            src="assets/2-level/w4.png" alt="">
           <img draggable="false" class="mob" data-in="assets/2-level/mob/w4in.png" data-out="assets/2-level/mob/w4.png"
             src="assets/2-level/mob/w4.png" alt="">
           <div data-hitbox="black" class="hitbox"></div>
         </div>
 
         <div class="wire" data-play="put2" data-offset="0.9" data-offset-mob="1.1">
-          <img draggable="false" data-in="assets/2-level/w5in.png" data-out="assets/2-level/w5.png" src="assets/2-level/w5.png" alt="">
+          <img draggable="false" data-in="assets/2-level/w5in.png" data-out="assets/2-level/w5.png"
+            src="assets/2-level/w5.png" alt="">
           <img draggable="false" class="mob" data-in="assets/2-level/mob/w5in.png" data-out="assets/2-level/mob/w5.png"
             src="assets/2-level/mob/w5.png" alt="">
           <div data-hitbox="orange" class="hitbox"></div>
@@ -615,7 +684,7 @@
       <div>
         <img draggable="false" src="assets/Kitchen.png" alt="Логотип игры" />
         <h2>Find Sort Match</h2>
-        <button id="download-btn">Play Now</button>
+        <button id="download-btn">Download</button>
       </div>
     </div>
   </div>
@@ -657,6 +726,7 @@
 
       hand.style.left = position.leftStart
       hand.style.top = position.topStart
+      hand.style.transition = "opacity 0.3s ease 0s"
 
 
       setTimeout(() => {
@@ -689,7 +759,8 @@
     function level1() {
       const level = document.querySelector('#level1')
 
-      handTutorial(level.querySelector('.hand'),
+      const hand = level.querySelector('.hand')
+      handTutorial(hand,
         {
           leftStart: '47%',
           topStart: '100%',
@@ -704,6 +775,11 @@
 
       papers.forEach(paper => {
         paper.addEventListener('click', () => {
+
+          hand.style.opacity = 0
+          setTimeout(() => {
+            hand.style.zIndex = -100
+          }, 600);
 
           if (paper.dataset.clicked === "true") {
             return
@@ -754,9 +830,10 @@
       const wires = level.querySelectorAll('.wire')
       const takeAudio = level.querySelector('[data-sound="take"]')
       const indicator = level.querySelector('.indicator')
+      const hand = level.querySelector('.hand')
 
       if (window.innerWidth <= 1070) {
-        handTutorial(level.querySelector('.hand'),
+        handTutorial(hand,
           {
             leftStart: '31%',
             topStart: '65%',
@@ -764,7 +841,7 @@
             topEnd: '79%',
           })
       } else {
-        handTutorial(level.querySelector('.hand'),
+        handTutorial(hand,
           {
             leftStart: '23%',
             topStart: '30%',
@@ -779,6 +856,11 @@
         // Drag and drop       
         function dragDrop(e) {
           e.preventDefault()
+
+          hand.style.opacity = 0
+          setTimeout(() => {
+            hand.style.zIndex = -100
+          }, 600);
 
           takeAudio.play()
 

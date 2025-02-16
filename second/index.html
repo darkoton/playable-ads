@@ -16,7 +16,11 @@
     * {
       padding: 0;
       margin: 0;
+      -webkit-box-sizing: border-box;
       box-sizing: border-box;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
       user-select: none;
     }
 
@@ -55,6 +59,8 @@
       top: 50%;
       left: 50%;
       z-index: 300;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
       text-align: center;
       width: 100%;
@@ -62,12 +68,18 @@
       max-width: 670px;
       background: url("assets/popup-bg.jpg") center / cover no-repeat;
       color: #333;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
       flex-direction: column;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
       justify-content: center;
 
       padding: 30px;
       font-size: 3em;
       border-radius: 10px;
+      -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
       overflow: auto;
 
@@ -80,15 +92,26 @@
     }
 
     #popup.active {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
     }
 
     #popup div {
       height: 100%;
       width: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
       flex-direction: column;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
       align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
       justify-content: center;
     }
 
@@ -96,8 +119,6 @@
     #popup img {
       width: 100%;
       max-width: 150px;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
       border-radius: 10px;
       border: 1px solid #fff;
       margin-bottom: 30px;
@@ -123,6 +144,7 @@
       font-weight: 600;
       border-radius: 1000px;
       /* box-shadow: 0 0 20px 1px rgb(203, 72, 207); */
+      -webkit-animation: pulse 1s ease 0s infinite alternate;
       animation: pulse 1s ease 0s infinite alternate;
     }
 
@@ -142,12 +164,26 @@
       }
     }
 
-    @keyframes pulse {
+    @-webkit-keyframes pulse {
       0% {
+        -webkit-transform: scale(0.95);
         transform: scale(0.95);
       }
 
       100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        -webkit-transform: scale(0.95);
+        transform: scale(0.95);
+      }
+
+      100% {
+        -webkit-transform: scale(1);
         transform: scale(1);
       }
     }
@@ -166,6 +202,8 @@
       position: relative;
       top: 50%;
       left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
       max-width: 60%;
     }
@@ -181,6 +219,7 @@
       left: 0;
       width: 100%;
       /* height: 100%; */
+      -o-object-fit: contain;
       object-fit: contain;
     }
 
@@ -236,17 +275,22 @@
       left: 50%;
       width: 70%;
       height: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
       z-index: 2;
     }
 
     #level1 .thing.walking {
+      -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
       transform: scale(0.9);
     }
 
     #level1 .thing img {
       width: 100%;
       height: 100%;
+      -o-object-fit: contain;
       object-fit: contain;
     }
 
@@ -349,6 +393,8 @@
       max-width: 50%;
       left: 50%;
       top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
     }
 
@@ -416,7 +462,13 @@
       position: absolute;
       top: 0;
       left: 0;
+      -webkit-transition: -webkit-transform 0.3s ease 0s;
+      transition: -webkit-transform 0.3s ease 0s;
+      -o-transition: transform 0.3s ease 0s;
       transition: transform 0.3s ease 0s;
+      transition: transform 0.3s ease 0s, -webkit-transform 0.3s ease 0s;
+      -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
       transform: scale(0.9);
       cursor: pointer;
     }
@@ -430,6 +482,8 @@
       top: 105%;
       left: 34%;
       width: 19%;
+      -webkit-transform: rotate(25deg);
+      -ms-transform: rotate(25deg);
       transform: rotate(25deg);
     }
 
@@ -437,6 +491,8 @@
       top: 100%;
       left: 4%;
       width: 16%;
+      -webkit-transform: rotate(25deg) scale(0.9);
+      -ms-transform: rotate(25deg) scale(0.9);
       transform: rotate(25deg) scale(0.9);
     }
 
@@ -462,6 +518,8 @@
       top: 110%;
       left: 86%;
       width: 12%;
+      -webkit-transform: rotate(-25deg);
+      -ms-transform: rotate(-25deg);
       transform: rotate(-25deg);
     }
 
@@ -475,6 +533,8 @@
       top: 109%;
       left: 20%;
       width: 12%;
+      -webkit-transform: rotate(-25deg);
+      -ms-transform: rotate(-25deg);
       transform: rotate(-25deg);
     }
 
@@ -572,7 +632,7 @@
           <div data-take="r-tea-take" data-put="r-tea-put" class="thing r-tea r-tea-4 walking">
             <div data-hitbox="3"></div>
             <img draggable="false" src="assets/1-level/R_tea.png" alt="">
-          </div> 
+          </div>
           <div data-take="r-tea-take" data-put="r-tea-put" class="thing r-tea r-tea-5 walking">
             <div data-hitbox="3"></div>
             <img draggable="false" src="assets/1-level/R_tea.png" alt="">
@@ -652,7 +712,7 @@
       <div>
         <img draggable="false" src="assets/Kitchen.png" alt="Логотип игры" />
         <h2>Find Sort Match</h2>
-        <button id="download-btn">Play Now</button>
+        <button id="download-btn">Download</button>
       </div>
     </div>
   </div>
@@ -703,6 +763,7 @@
 
       hand.style.left = position.leftStart
       hand.style.top = position.topStart
+      hand.style.transition = "opacity 0.3s ease 0s"
 
 
       setTimeout(() => {
@@ -736,9 +797,9 @@
       const level = document.querySelector('#level1')
       const things = level.querySelectorAll('.thing.walking')
       const cans = level.querySelector('.cans-layer')
+      const hand = level.querySelector('.hand')
 
-
-      handTutorial(level.querySelector('.hand'),
+      handTutorial(hand,
         {
           leftStart: '2%',
           topStart: '110%',
@@ -750,6 +811,11 @@
         // Drag and drop       
         function dragDrop(e) {
           e.preventDefault()
+
+          hand.style.opacity = 0
+          setTimeout(() => {
+            hand.style.zIndex = -100
+          }, 600);
 
           level.querySelector(`[data-sound="${thing.dataset.take}"]`).play()
 
@@ -856,6 +922,7 @@
       const level = document.querySelector('#level2')
       const buttons = level.querySelectorAll('.button')
       const box = level.querySelector('.box')
+      const hand = level.querySelector('.hand')
 
       const takeAudio = level.querySelector(`[data-sound="take"]`)
       const putAudio = level.querySelector(`[data-sound="put"]`)
@@ -872,6 +939,11 @@
         // Drag and drop       
         function dragDrop(e) {
           e.preventDefault()
+
+          hand.style.opacity = 0
+          setTimeout(() => {
+            hand.style.zIndex = -100
+          }, 600);
 
           takeAudio.play()
 
