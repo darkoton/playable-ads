@@ -321,10 +321,10 @@
       <audio data-sound="sparks" src="assets/1-level/audio/щиток-искрится.mp3"></audio>
 
       <div class="full-panel">
-        <img src="assets/hand.png" alt="" class="hand">
+        <img draggable="false" src="assets/hand.png" alt="" class="hand">
 
-        <img class="panel" src="assets/1-level/b1.png" alt="">
-        <img class="shild" src="assets/1-level/b2.png" alt="">
+        <img draggable="false" class="panel" src="assets/1-level/b1.png" alt="">
+        <img draggable="false" class="shild" src="assets/1-level/b2.png" alt="">
 
         <div class="hitboxes">
           <div class="hitbox" data-active="true" data-hitbox="1"></div>
@@ -381,7 +381,7 @@
 
     <div id="popup">
       <div>
-        <img src="assets/Kitchen.png" alt="Логотип игры" />
+        <img draggable="false" src="assets/Kitchen.png" alt="Логотип игры" />
         <h2>Find Sort Match</h2>
         <button id="download-btn">Play Now</button>
       </div>
@@ -511,13 +511,13 @@
 
         let isDragging = false;
 
-        hitboxMove.addEventListener("mousedown", (e) => {
+        hitboxMove.onmousedown = hitboxMove.ontouchstart = () => {
           takeAudio.play()
           wire.style.transition = null
           isDragging = true;
-          document.addEventListener("mousemove", onDrag);
-          document.addEventListener("mouseup", onRelease);
-        });
+          document.onmousemove = document.ontouchmove = onDrag;
+          document.onmouseup = document.ontouchend = onRelease;
+      }
 
         function onDrag(e) {
           if (!isDragging) return;
@@ -530,8 +530,16 @@
           const staticY = staticRect.top + staticRect.height / 2;
 
           // Позиция курсора
-          const mouseX = e.clientX;
-          const mouseY = e.clientY;
+          let mouseX;
+          let mouseY;
+
+          if (e.touches) {
+            mouseX = e.touches[0].clientX;
+            mouseY = e.touches[0].clientY;
+          }else{
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+          }
 
           // Вычисляем угол поворота
           const angle = Math.atan2(mouseY - staticY, mouseX - staticX);
@@ -595,87 +603,10 @@
           }
 
           isDragging = false;
-          document.removeEventListener("mousemove", onDrag);
-          document.removeEventListener("mouseup", onRelease);
+          document.onmousemove = document.ontouchmove = null;
+          document.onmouseup = document.ontouchend = null;
         }
       })
-
-      // buttons.forEach(button => {
-      //   // Drag and drop       
-      //   function dragDrop(e) {
-      //     e.preventDefault()
-
-      //     takeAudio.play()
-
-      //     button.dataset.active = false
-      //     button.style.transform = 'none'
-      //     button.style.zIndex = 10
-
-      //     const boxRect = box.getBoundingClientRect();
-      //     const buttonRect = button.getBoundingClientRect();
-
-      //     let offsetX, offsetY;
-
-      //     if (e.touches) {
-      //       offsetX = e.touches[0].clientX - buttonRect.left;
-      //       offsetY = e.touches[0].clientY - buttonRect.top;
-      //     } else {
-      //       offsetX = e.clientX - buttonRect.left;
-      //       offsetY = e.clientY - buttonRect.top;
-      //     }
-
-      //     function moveAt(e) {
-      //       let x, y;
-
-      //       if (e.touches) {
-      //         x = e.touches[0].clientX - boxRect.left - offsetX;
-      //         y = e.touches[0].clientY - boxRect.top - offsetY;
-      //       } else {
-      //         x = e.clientX - boxRect.left - offsetX;
-      //         y = e.clientY - boxRect.top - offsetY;
-      //       }
-
-      //       button.style.left = `${x}px`;
-      //       button.style.top = `${y}px`;
-      //     }
-
-      //     document.onmousemove = document.ontouchmove = function (e) {
-      //       moveAt(e);
-      //     }
-
-      //     document.onmouseup = document.ontouchend = function (e) {
-      //       document.onmousemove = document.ontouchmove = null
-      //       document.onmouseup = document.ontouchend = null
-
-      //       putAudio.play()
-
-      //       // Check overlap
-      //       const hitboxes = level.querySelectorAll(`.hitboxes > [data-hitbox="${button.dataset.hitbox}"]`)
-      //       const hitbox = isIntersecting(button, ...hitboxes)
-
-      //       if (hitbox) {
-
-      //         button.dataset.active = true
-
-      //         if (level.querySelectorAll('.button[data-active="true"]').length === 9) {
-      //           level.style.pointerEvents = 'none'
-      //           popup.classList.add('active')
-      //         }
-
-
-      //         button.style.zIndex = Math.max(5, ...Array.from(level.querySelectorAll(`.button[data-hitbox="${button.dataset.hitbox}"][data-active="true"]`))
-      //           .filter(el => el !== button)
-      //           .map(el => el.style.zIndex)) + 1
-      //         button.dataset.active = true
-
-      //       } else {
-      //         button.style.zIndex = 10
-      //       }
-      //     }
-      //   }
-
-      //   button.onmousedown = button.ontouchstart = dragDrop
-      // })
     }
 
     level1()
