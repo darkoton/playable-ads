@@ -202,8 +202,8 @@
 
     #level1 .main {
       position: absolute;
-      width: 80%;
-      /* max-width: 40%; */
+      width: 100%;
+      max-width: 125vh;
       /* max-height: 1043px; */
       /*      height: 100%;*/
       top: 50%;
@@ -219,15 +219,14 @@
       align-items: center;
     }
 
-    #level1 .main img {
+    #level1 .main .fetus {
       width: 100%;
-      /* height: 100%; */
     }
 
     #level1 .hitboxes .hitbox {
       position: absolute;
-      width: 9.9vw;
-      height: 9.9vw;
+      width: 13%;
+      height: 22%;
       z-index: 1;
     }
 
@@ -262,8 +261,7 @@
       position: absolute;
       left: 0;
       top: 0;
-      width: 9.9vw;
-      height: 9.9vw;
+      width: 13%;
       -webkit-transform: scale(0.9);
       -ms-transform: scale(0.9);
       transform: scale(0.9);
@@ -282,7 +280,7 @@
     }
 
     #level1 .corns img:nth-child(3) {
-      top: 80%;
+      top: 87%;
       left: 64%;
     }
 
@@ -294,47 +292,6 @@
     #level1 .corns img:nth-child(5) {
       top: 20%;
       left: 45%;
-    }
-
-    @media(max-width: 680px) {
-      #level1 .main {
-        width: 100%;
-      }
-
-      #level1 .hitboxes .hitbox {
-        width: 12.9vw;
-        height: 12.9vw;
-      }
-
-      #level1 .corns img {
-        width: 12.9vw;
-        height: 12.9vw;
-      }
-
-      #level1 .hitboxes :nth-child(1) {
-        left: 26.5vw;
-        top: 19.6vw;
-      }
-
-      #level1 .hitboxes :nth-child(2) {
-        left: 37.8vw;
-        top: 26.4vw;
-      }
-
-      #level1 .hitboxes :nth-child(3) {
-        left: 50vw;
-        top: 31.7vw;
-      }
-
-      #level1 .hitboxes :nth-child(4) {
-        left: 62.5vw;
-        top: 34.5vw;
-      }
-
-      #level1 .hitboxes :nth-child(5) {
-        left: 76vw;
-        top: 34.5vw;
-      }
     }
 
     /* LEVEL 2 */
@@ -351,8 +308,9 @@
 
     #level2 .main {
       position: absolute;
-      width: 70%;
-      /* max-width: 40%; */
+      width: 100%;
+      max-width: 120vh;
+      padding: 0 20px;
       /* max-height: 1043px; */
       /*      height: 100%;*/
       top: 50%;
@@ -368,82 +326,73 @@
       align-items: center;
     }
 
-    @media(max-width: 768px) {
-      #level2 .main {
-        width: 90%;
-      }
-
-      #level2 .hand {
-        display: none;
-      }
-    }
-
-    #level2 .main img {
+    #level2 .main .stand,
+    #level2 .butterflies img {
       width: 100%;
       /* height: 100%; */
     }
 
     #level2 .hitboxes .hitbox {
       position: absolute;
-      /*      background-color: rgba(255, 0, 0, 0.4);*/
+      /* background-color: rgba(255, 0, 0, 0.4); */
       width: 9.9vw;
       height: 9.9vw;
       z-index: 1;
     }
 
     #level2 .hitboxes .hitbox:nth-child(1) {
-      left: 11.5%;
-      top: 15%;
-      width: 21.4%;
+      left: 12.5%;
+      top: 14.7%;
+      width: 20.7%;
       height: 24%;
     }
 
     #level2 .hitboxes .hitbox:nth-child(2) {
-      left: 41%;
+      left: 41.6%;
       top: 44%;
-      width: 27.5%;
+      width: 25.6%;
       height: 23%;
     }
 
     #level2 .hitboxes .hitbox:nth-child(3) {
-      left: 69%;
-      top: 17%;
-      width: 18.6%;
+      left: 68%;
+      top: 16.5%;
+      width: 18.3%;
       height: 27%;
     }
 
     #level2 .hitboxes .hitbox:nth-child(4) {
-      left: 12%;
+      left: 13.6%;
       top: 62%;
-      width: 17%;
+      width: 15.7%;
       height: 21%;
     }
 
     #level2 .hitboxes .hitbox:nth-child(5) {
-      left: 33%;
-      top: 59%;
-      width: 20.5%;
+      left: 33.5%;
+      top: 59.1%;
+      width: 19.3%;
       height: 22%;
     }
 
     #level2 .hitboxes .hitbox:nth-child(6) {
-      left: 11.3%;
+      left: 12.9%;
       top: 40%;
-      width: 17.5%;
+      width: 16.6%;
       height: 22%;
     }
 
     #level2 .hitboxes .hitbox:nth-child(7) {
-      left: 33%;
-      top: 19%;
-      width: 20%;
+      left: 33.5%;
+      top: 18.8%;
+      width: 19.6%;
       height: 21%;
     }
 
     #level2 .hitboxes .hitbox:nth-child(8) {
-      left: 66.3%;
-      top: 53%;
-      width: 22%;
+      left: 65.5%;
+      top: 53.2%;
+      width: 21.2%;
       height: 28%;
     }
 
@@ -453,27 +402,27 @@
     }
 
     #level2 .static img:nth-child(1) {
-      left: 30.4%;
+      left: 31.1%;
       top: 39.4%;
       width: 10%;
     }
 
     #level2 .static img:nth-child(2) {
-      left: 54.4%;
+      left: 54%;
       top: 67.4%;
       width: 11%;
     }
 
     #level2 .static img:nth-child(3) {
-      left: 53%;
-      top: 22.4%;
+      left: 52.5%;
+      top: 22.1%;
       width: 15.5%;
     }
 
     #level2 .static img:nth-child(4) {
-      left: 29%;
+      left: 30%;
       top: 52%;
-      width: 13%;
+      width: 12.3%;
     }
 
     #level2 .butterflies img {
@@ -491,101 +440,51 @@
     }
 
     #level2 .butterflies img:nth-child(1) {
-      left: 5.5%;
+      left: -7.5%;
       top: 44%;
-      width: 15vw;
+      width: 21.5%;
     }
 
     #level2 .butterflies img:nth-child(2) {
-      left: 73.6%;
+      left: 81.6%;
       top: 30%;
-      width: 19.3vw;
+      width: 26%;
     }
 
     #level2 .butterflies img:nth-child(3) {
-      left: 5%;
+      left: -5%;
       top: 60%;
-      width: 13vw;
+      width: 18.4%;
     }
 
     #level2 .butterflies img:nth-child(4) {
-      left: 77%;
+      left: 88%;
       top: 38%;
-      width: 11.8vw;
+      width: 16%;
     }
 
     #level2 .butterflies img:nth-child(5) {
-      left: 10%;
+      left: -6%;
       top: 16.4%;
-      width: 14.6vw;
+      width: 20%;
     }
 
     #level2 .butterflies img:nth-child(6) {
-      left: 80.7%;
+      left: 84.7%;
       top: 60%;
-      width: 12.5vw;
+      width: 17%;
     }
 
     #level2 .butterflies img:nth-child(7) {
-      left: 7.7%;
+      left: -5.3%;
       top: 28%;
-      width: 14vw;
+      width: 19.6%;
     }
 
     #level2 .butterflies img:nth-child(8) {
-      left: 77%;
+      left: 83%;
       top: 70%;
-      width: 15.5vw;
-    }
-
-    @media(max-width: 768px) {
-      #level2 .butterflies img:nth-child(1) {
-        left: 2.5%;
-        top: 44%;
-        width: 19.2vw;
-      }
-
-      #level2 .butterflies img:nth-child(2) {
-        left: 73.6%;
-        top: 30%;
-        width: 25vw;
-      }
-
-      #level2 .butterflies img:nth-child(3) {
-        left: 3%;
-        top: 60%;
-        width: 16.3vw;
-      }
-
-      #level2 .butterflies img:nth-child(4) {
-        left: 77%;
-        top: 38%;
-        width: 15vw;
-      }
-
-      #level2 .butterflies img:nth-child(5) {
-        left: 6%;
-        top: 16.4%;
-        width: 18.4vw;
-      }
-
-      #level2 .butterflies img:nth-child(6) {
-        left: 80.7%;
-        top: 60%;
-        width: 15.7vw;
-      }
-
-      #level2 .butterflies img:nth-child(7) {
-        left: 4.7%;
-        top: 28%;
-        width: 18vw;
-      }
-
-      #level2 .butterflies img:nth-child(8) {
-        left: 77%;
-        top: 70%;
-        width: 19.6vw;
-      }
+      width: 21.1%;
     }
   </style>
 </head>
@@ -593,9 +492,10 @@
 <body>
   <div class="game">
     <div class="level" id="level1">
-      <img draggable="false" class="hand" src="assets/hand.png" alt="" />
 
       <div class="main">
+        <img draggable="false" class="hand" src="assets/hand.png" alt="" />
+
         <div class="hitboxes">
           <div data-hitbox="1" class="hitbox"></div>
           <div data-hitbox="2" class="hitbox"></div>
@@ -604,26 +504,26 @@
           <div data-hitbox="5" class="hitbox"></div>
         </div>
 
-        <img draggable="false" src="assets/1-level/goroh1.png" alt="">
+        <img class="fetus" draggable="false" src="assets/1-level/goroh1.png" alt="">
 
-      </div>
-
-      <div class="corns">
-        <img draggable="false" data-hitbox src="assets/1-level/goroh2.png" alt="">
-        <img draggable="false" data-hitbox src="assets/1-level/goroh2.png" alt="">
-        <img draggable="false" data-hitbox src="assets/1-level/goroh2.png" alt="">
-        <img draggable="false" data-hitbox src="assets/1-level/goroh2.png" alt="">
-        <img draggable="false" data-hitbox src="assets/1-level/goroh2.png" alt="">
+        <div class="corns">
+          <img draggable="false" data-hitbox src="assets/1-level/goroh2.png" alt="">
+          <img draggable="false" data-hitbox src="assets/1-level/goroh2.png" alt="">
+          <img draggable="false" data-hitbox src="assets/1-level/goroh2.png" alt="">
+          <img draggable="false" data-hitbox src="assets/1-level/goroh2.png" alt="">
+          <img draggable="false" data-hitbox src="assets/1-level/goroh2.png" alt="">
+        </div>
       </div>
     </div>
 
     <div class="level" id="level2" style="display: none;">
-      <img draggable="false" class="hand" src="assets/hand.png" alt="" />
 
       <audio data-sound="take" src="assets/2-level/audio/take.mp3"></audio>
       <audio data-sound="put" src="assets/2-level/audio/put.mp3"></audio>
 
       <div class="main">
+        <img draggable="false" class="hand" src="assets/hand.png" alt="" />
+
         <div class="hitboxes">
           <div data-hitbox="but4" class="hitbox"></div>
           <div data-hitbox="but6" class="hitbox"></div>
@@ -643,18 +543,17 @@
         </div>
 
         <img draggable="false" class="stand" src="assets/2-level/pic.png">
-      </div>
 
-      <div class="butterflies">
-        <img draggable="false" data-hitbox="but4" src="assets/2-level/4.png">
-        <img draggable="false" data-hitbox="but6" src="assets/2-level/6.png">
-        <img draggable="false" data-hitbox="but7" src="assets/2-level/7.png">
-        <img draggable="false" data-hitbox="but8" src="assets/2-level/8.png">
-        <img draggable="false" data-hitbox="but9" src="assets/2-level/9.png">
-        <img draggable="false" data-hitbox="but10" src="assets/2-level/10.png">
-        <img draggable="false" data-hitbox="but11" src="assets/2-level/11.png">
-        <img draggable="false" data-hitbox="but12" src="assets/2-level/12.png">
-
+        <div class="butterflies">
+          <img draggable="false" data-hitbox="but4" src="assets/2-level/4.png">
+          <img draggable="false" data-hitbox="but6" src="assets/2-level/6.png">
+          <img draggable="false" data-hitbox="but7" src="assets/2-level/7.png">
+          <img draggable="false" data-hitbox="but8" src="assets/2-level/8.png">
+          <img draggable="false" data-hitbox="but9" src="assets/2-level/9.png">
+          <img draggable="false" data-hitbox="but10" src="assets/2-level/10.png">
+          <img draggable="false" data-hitbox="but11" src="assets/2-level/11.png">
+          <img draggable="false" data-hitbox="but12" src="assets/2-level/12.png">
+        </div>
       </div>
     </div>
 
@@ -755,10 +654,10 @@
 
       handTutorial(level.querySelector('.hand'),
         {
-          leftStart: '12%',
-          topStart: '52%',
-          leftEnd: '42%',
-          topEnd: '52%',
+          leftStart: '11%',
+          topStart: '57%',
+          leftEnd: '29%',
+          topEnd: '45%',
         })
 
       corns.forEach(corn => {
@@ -782,7 +681,9 @@
           corn.style.transform = 'none'
           corn.style.zIndex = 6
 
+          const mainRect = main.getBoundingClientRect();
           const rect = corn.getBoundingClientRect();
+
           let offsetX
           let offsetY
 
@@ -798,11 +699,11 @@
           function moveAt(e) {
 
             if (e.touches) {
-              corn.style.left = e.touches[0].pageX - offsetX + 'px';
-              corn.style.top = e.touches[0].pageY - offsetY + 'px';
+              corn.style.left = e.touches[0].pageX - mainRect.left - offsetX + 'px';
+              corn.style.top = e.touches[0].pageY - mainRect.top - offsetY + 'px';
             } else {
-              corn.style.left = e.pageX - offsetX + 'px';
-              corn.style.top = e.pageY - offsetY + 'px';
+              corn.style.left = e.pageX - mainRect.left - offsetX + 'px';
+              corn.style.top = e.pageY - mainRect.top - offsetY + 'px';
             }
           }
 
@@ -825,8 +726,8 @@
               // level.querySelector(`[data-sound="${corn.dataset.play}"]`).play()
 
               corn.dataset.hitbox = hitbox.dataset.hitbox
-              corn.style.left = hitboxRect.x + 'px';
-              corn.style.top = hitboxRect.y + 'px';
+              corn.style.left = hitboxRect.x - mainRect.left + 'px';
+              corn.style.top = hitboxRect.y - mainRect.top + 'px';
 
               corn.style.zIndex = 1
               corn.dataset.active = true
@@ -860,14 +761,14 @@
       const takeAudio = level.querySelector('[data-sound="take"]')
       const putAudio = level.querySelector('[data-sound="put"]')
       const hand = level.querySelector('.hand')
-
+      const main = level.querySelector('.main')
 
       handTutorial(level.querySelector('.hand'),
         {
-          leftStart: '12vw',
-          topStart: '41vh',
-          leftEnd: '42vw',
-          topEnd: '41vh',
+          leftStart: '2%',
+          topStart: '38%',
+          leftEnd: '29%',
+          topEnd: '41%',
         })
 
       butterflies.forEach(butterfly => {
@@ -890,6 +791,7 @@
 
           imgs.forEach(img => img.src = img.dataset.out)
 
+          const mainRect = main.getBoundingClientRect();
           const rect = butterfly.getBoundingClientRect();
           let offsetX = e.clientX - rect.left;
           let offsetY = e.clientY - rect.top;
@@ -905,11 +807,11 @@
           function moveAt(e) {
 
             if (e.touches) {
-              butterfly.style.left = e.touches[0].pageX - offsetX + 'px';
-              butterfly.style.top = e.touches[0].pageY - offsetY + 'px';
+              butterfly.style.left = e.touches[0].pageX - mainRect.left - offsetX + 'px';
+              butterfly.style.top = e.touches[0].pageY - mainRect.top - offsetY + 'px';
             } else {
-              butterfly.style.left = e.pageX - offsetX + 'px';
-              butterfly.style.top = e.pageY - offsetY + 'px';
+              butterfly.style.left = e.pageX - mainRect.left - offsetX + 'px';
+              butterfly.style.top = e.pageY - mainRect.top - offsetY + 'px';
             }
           }
 
@@ -932,8 +834,8 @@
               putAudio.play()
 
 
-              butterfly.style.left = hitboxRect.x + 'px';
-              butterfly.style.top = hitboxRect.y + 'px';
+              butterfly.style.left = hitboxRect.x - mainRect.left + 'px';
+              butterfly.style.top = hitboxRect.y - mainRect.top + 'px';
 
 
               butterfly.style.zIndex = 1
