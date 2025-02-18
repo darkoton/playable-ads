@@ -7,6 +7,14 @@
   <title>Playable-1</title>
 
   <style>
+    @font-face {
+      font-family: Delicious;
+      src: url("assets/DeliciousHandrawn-Regular.ttf") format("TrueType");
+      font-weight: 400;
+      font-style: normal;
+    }
+
+
     html,
     body {
       width: 100%;
@@ -55,6 +63,20 @@
     #level1 {
       background: url('assets/1-level/bg.png') 0 0/ cover no-repeat;
       position: relative;
+    }
+
+    #level1 .hand {
+      animation: pulse-hand 1.5s ease-in-out 0s infinite alternate-reverse;
+    }
+
+    @keyframes pulse-hand {
+      0% {
+        transform: scale(1.3);
+      }
+
+      100% {
+        transform: scale(1);
+      }
     }
 
     .announcement {
@@ -140,13 +162,14 @@
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
+      -webkit-box-pack: end;
+      -ms-flex-pack: flex-end;
+      justify-content: end;
       -webkit-box-align: end;
       -ms-flex-align: end;
       align-items: end;
       padding: 50px 0;
+      flex-direction: column;
     }
 
 
@@ -158,10 +181,6 @@
     .adapter .block {
       width: 100%;
       height: 100%;
-    }
-
-    .adapter .block.mob {
-      display: none;
     }
 
     .adapter .hitbox {
@@ -242,11 +261,6 @@
       width: 100%;
     }
 
-    .wire img.mob {
-      display: none;
-    }
-
-
     .wire:nth-child(1) {
       width: 5.8vw;
       left: 65%;
@@ -302,150 +316,6 @@
       -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
       transform: translateY(-50%);
-    }
-
-    @media (max-width: 1070px) {
-      .wire img {
-        display: none;
-        height: 100%;
-      }
-
-      .wire img.mob {
-        display: block;
-      }
-
-      .adapter .block {
-        display: none;
-      }
-
-      .adapter .block.mob {
-        display: block;
-      }
-
-      #level2 {
-        padding: 0;
-        -webkit-box-pack: end;
-        -ms-flex-pack: end;
-        justify-content: flex-end;
-
-      }
-
-      .adapter {
-        height: 100%;
-        width: auto;
-      }
-
-      .adapter .hitbox {
-        top: auto !important;
-      }
-
-      .adapter .hitbox:nth-child(1) {
-        width: 20%;
-        height: 4.6%;
-        left: 40%;
-        bottom: 9%;
-      }
-
-      .adapter .hitbox:nth-child(2) {
-        width: 20%;
-        height: 4.6%;
-        left: 40%;
-        bottom: 19.3%;
-      }
-
-      .adapter .hitbox:nth-child(3) {
-        width: 13%;
-        height: 3%;
-        left: 44%;
-        bottom: 30.5%;
-      }
-
-      .adapter .hitbox:nth-child(4) {
-        width: 58%;
-        height: 13.3%;
-        left: 18%;
-        bottom: 39.5%;
-      }
-
-      .adapter .hitbox:nth-child(5) {
-        width: 58%;
-        height: 13.3%;
-        left: 18%;
-        bottom: 54.9%;
-      }
-
-      .indicator {
-        top: 25%;
-        right: 45%;
-        width: 3vh;
-        max-width: 100%;
-        -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-        transform: translateX(-50%);
-      }
-
-      .wire:nth-child(n) {
-        width: 80vh;
-        left: -30vh;
-      }
-
-      .wire:nth-child(n) .hitbox {
-        left: auto;
-        right: 0;
-        height: 100%;
-      }
-
-      .wire:nth-child(1) {
-        height: 5.8vh;
-        top: 40%;
-      }
-
-      .wire:nth-child(1) .hitbox {
-        width: 32%;
-      }
-
-      .wire:nth-child(2) {
-        height: 5.8vh;
-        top: 63%;
-      }
-
-      .wire:nth-child(2) .hitbox {
-        width: 32%;
-      }
-
-      .wire:nth-child(3) {
-        height: 4.9vh;
-        top: 28%;
-      }
-
-      .wire:nth-child(3) .hitbox {
-        width: 24%;
-      }
-
-      .wire:nth-child(4) {
-        height: 12vh;
-        top: 75%;
-      }
-
-      .wire:nth-child(4) .hitbox {
-        width: 22.5%;
-      }
-
-      .wire:nth-child(5) {
-        height: 13.5vh;
-        top: 49%;
-      }
-
-      .wire:nth-child(5) .hitbox {
-        width: 22.5%;
-      }
-    }
-
-    @media (max-width: 680px) {
-      .wire:nth-child(n) {
-        left: auto;
-        right: 40%;
-      }
     }
 
     /* POPUP */
@@ -585,11 +455,28 @@
         transform: scale(1);
       }
     }
+
+    .note {
+      color: #fff;
+      font-family: Delicious;
+      font-size: 40px;
+      width: 100%;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 680px) {
+      .note {
+        font-size: 25px;
+      }
+    }
   </style>
 </head>
 
 <body>
   <div class="game">
+    <audio id="theme" src="assets/theme.mp3"></audio>
+
     <div class="level" id="level1">
       <audio data-sound="cow" src="assets/1-level/ad_sounds/1 бумажка корова.mp3"></audio>
       <audio data-sound="goat" src="assets/1-level/ad_sounds/2 бумажка коза.mp3"></audio>
@@ -625,40 +512,30 @@
         <div class="wire" data-play="put1" data-offset="1.2">
           <img draggable="false" data-in="assets/2-level/w1in.png" data-out="assets/2-level/w1.png"
             src="assets/2-level/w1.png" alt="">
-          <img draggable="false" class="mob" data-in="assets/2-level/mob/w1in.png" data-out="assets/2-level/mob/w1.png"
-            src="assets/2-level/mob/w1.png" alt="">
           <div data-hitbox="blue" class="hitbox"></div>
         </div>
 
         <div class="wire" data-play="put1" data-offset="1.2">
           <img draggable="false" data-in="assets/2-level/w2in.png" data-out="assets/2-level/w2.png"
             src="assets/2-level/w2.png" alt="">
-          <img draggable="false" class="mob" data-in="assets/2-level/mob/w2in.png" data-out="assets/2-level/mob/w2.png"
-            src="assets/2-level/mob/w2.png" alt="">
           <div data-hitbox="red" class="hitbox"></div>
         </div>
 
         <div class="wire" data-play="put2" data-offset="1.4">
           <img draggable="false" data-in="assets/2-level/w3in.png" data-out="assets/2-level/w3.png"
             src="assets/2-level/w3.png" alt="">
-          <img draggable="false" class="mob" data-in="assets/2-level/mob/w3in.png" data-out="assets/2-level/mob/w3.png"
-            src="assets/2-level/mob/w3.png" alt="">
           <div data-hitbox="blue-light" class="hitbox"></div>
         </div>
 
-        <div class="wire" data-play="put2" data-offset="0.75" data-offset-mob="0.9">
+        <div class="wire" data-play="put2" data-offset="0.75">
           <img draggable="false" data-in="assets/2-level/w4in.png" data-out="assets/2-level/w4.png"
             src="assets/2-level/w4.png" alt="">
-          <img draggable="false" class="mob" data-in="assets/2-level/mob/w4in.png" data-out="assets/2-level/mob/w4.png"
-            src="assets/2-level/mob/w4.png" alt="">
           <div data-hitbox="black" class="hitbox"></div>
         </div>
 
-        <div class="wire" data-play="put2" data-offset="0.9" data-offset-mob="1.1">
+        <div class="wire" data-play="put2" data-offset="0.9">
           <img draggable="false" data-in="assets/2-level/w5in.png" data-out="assets/2-level/w5.png"
             src="assets/2-level/w5.png" alt="">
-          <img draggable="false" class="mob" data-in="assets/2-level/mob/w5in.png" data-out="assets/2-level/mob/w5.png"
-            src="assets/2-level/mob/w5.png" alt="">
           <div data-hitbox="orange" class="hitbox"></div>
         </div>
       </div>
@@ -667,7 +544,6 @@
       <div class="adapter">
 
         <img draggable="false" class="block" src="assets/2-level/adapt.png" alt="">
-        <img draggable="false" class="block mob" src="assets/2-level/mob/adapt.png" alt="">
         <img draggable="false" class="indicator" src="assets/2-level/off.png" alt="">
 
         <div class="hitboxs">
@@ -678,6 +554,8 @@
           <div data-hitbox="orange" class="hitbox"></div>
         </div>
       </div>
+
+      <div class="note">Put the object in the right place</div>
     </div>
 
     <div id="popup">
@@ -698,6 +576,12 @@
 
     const audios = document.querySelectorAll('audio')
     audios.forEach(audio => audio.volume = 0.45)
+
+    const theme = document.getElementById('theme')
+    theme.play()
+    theme.onended = () => theme.play()
+    document.addEventListener('mousedown', () => theme.play())
+    document.addEventListener('touchstart', () => theme.play())
 
     const levels = document.querySelectorAll('.level')
     function selectLevel(id) {
@@ -752,7 +636,13 @@
           }, 1000);
         }, 1000);
       }, 1000);
+    }
 
+    function playSuccess() {
+      const audio = document.createElement('audio')
+      audio.src = "assets/successed.mp3"
+      audio.onended = audio.remove
+      audio.play()
     }
 
     //  LEVEL 1 
@@ -765,7 +655,7 @@
           leftStart: '47%',
           topStart: '100%',
           leftEnd: '47%',
-          topEnd: '150%',
+          topEnd: '100%',
         })
 
       const papers = document.querySelectorAll('.paper')
@@ -803,6 +693,8 @@
           if (checkWinn) {
             clearTimeout(checkWinn);
           }
+
+          playSuccess()
 
           checkWinn = setTimeout(() => {
             let count = 0
@@ -922,6 +814,8 @@
 
               wire.style.zIndex = 1
               wire.dataset.active = true
+              playSuccess()
+
 
               if (level.querySelectorAll('[data-active="true"]').length === 5) {
                 indicator.src = 'assets/2-level/on.png'

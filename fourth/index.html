@@ -7,6 +7,13 @@
   <title>Playable-4</title>
 
   <style>
+    @font-face {
+      font-family: Delicious;
+      src: url("assets/DeliciousHandrawn-Regular.ttf") format("TrueType");
+      font-weight: 400;
+      font-style: normal;
+    }
+
     html,
     body {
       width: 100%;
@@ -198,7 +205,7 @@
 
     #level1 .full-panel {
       width: 100%;
-      max-width: 50%;
+      max-width: 100vh;
       position: relative;
       left: 50%;
       top: 50%;
@@ -206,6 +213,18 @@
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
     }
+
+    /* @media (max-width: 680px) {
+      #level1 .full-panel {
+        max-width: 80%;
+      }
+    }
+
+    @media (max-width: 440px) {
+      #level1 .full-panel {
+        max-width: 90%;
+      }
+    } */
 
     #level1 .panel {
       width: 100%;
@@ -325,8 +344,8 @@
 
     #level1 .hitboxes .hitbox {
       position: absolute;
-      width: 2.5vw;
-      height: 2.5vw;
+      width: 7%;
+      height: 9%;
     }
 
     #level1 .hitboxes .hitbox:nth-child(1) {
@@ -368,11 +387,28 @@
       top: 46%;
       left: 5.4%;
     }
+
+    .note {
+      color: #fff;
+      font-family: Delicious;
+      font-size: 40px;
+      width: 100%;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 680px) {
+      .note {
+        font-size: 25px;
+      }
+    }
   </style>
 </head>
 
 <body>
   <div class="game">
+    <audio id="theme" src="assets/theme.mp3"></audio>
+
     <div class="level" id="level1">
       <audio data-sound="take" src="assets/1-level/audio/вытащили шнур.mp3"></audio>
       <audio data-sound="put" src="assets/1-level/audio/засунули шнур.mp3"></audio>
@@ -456,6 +492,13 @@
     const audios = document.querySelectorAll('audio')
     audios.forEach(audio => audio.volume = 0.45)
 
+    const theme = document.getElementById('theme')
+    theme.play()
+    theme.onended = () => theme.play()
+    document.addEventListener('mousedown', () => theme.play())
+    document.addEventListener('touchstart', () => theme.play())
+
+
     const levels = document.querySelectorAll('.level')
     function selectLevel(id) {
       levels.forEach(level => {
@@ -519,6 +562,13 @@
         }, 1000);
       }, 1000);
 
+    }
+
+    function playSuccess() {
+      const audio = document.createElement('audio')
+      audio.src = "assets/successed.mp3"
+      audio.onended = audio.remove
+      audio.play()
     }
 
     // LEVEL 1
@@ -648,9 +698,14 @@
             wire.dataset.transform = wire.style.transform = `rotate(${degrees}deg)`;
             wire.dataset.height = wire.style.height = `${distance}px`;
 
-            level.querySelector(`[data-hitbox="${wire.dataset.active}"]`).dataset.active = false
+            level.querySelector(`.hitboxes [data-hitbox="${wire.dataset.active}"]`).dataset.active = false
             wire.dataset.active = port.dataset.hitbox
             port.dataset.active = true
+
+
+            if (hitboxMove.dataset.hitbox === port.dataset.hitbox) {
+              playSuccess()
+            }
 
             const checkWinn = (el) => el.dataset.active === el.querySelector('.hitbox-move').dataset.hitbox
 

@@ -7,6 +7,13 @@
   <title>Playable-3</title>
 
   <style>
+    @font-face {
+      font-family: Delicious;
+      src: url("assets/DeliciousHandrawn-Regular.ttf") format("TrueType");
+      font-weight: 400;
+      font-style: normal;
+    }
+
     html,
     body {
       width: 100%;
@@ -310,7 +317,6 @@
       position: absolute;
       width: 100%;
       max-width: 120vh;
-      padding: 0 20px;
       /* max-height: 1043px; */
       /*      height: 100%;*/
       top: 50%;
@@ -340,60 +346,39 @@
       z-index: 1;
     }
 
-    #level2 .hitboxes .hitbox:nth-child(1) {
-      left: 12.5%;
+    #level2 .hitboxes .hitbox[data-hitbox="but4"] {
+      left: 11.5%;
       top: 14.7%;
-      width: 20.7%;
-      height: 24%;
+      width: 21.5%;
+      height: 24.5%;
     }
 
-    #level2 .hitboxes .hitbox:nth-child(2) {
-      left: 41.6%;
+    #level2 .hitboxes .hitbox[data-hitbox="but6"] {
+      left: 41%;
       top: 44%;
-      width: 25.6%;
+      width: 27.5%;
       height: 23%;
     }
 
-    #level2 .hitboxes .hitbox:nth-child(3) {
-      left: 68%;
+    #level2 .hitboxes .hitbox[data-hitbox="but7"] {
+      left: 69%;
       top: 16.5%;
-      width: 18.3%;
+      width: 18.7%;
       height: 27%;
     }
 
-    #level2 .hitboxes .hitbox:nth-child(4) {
-      left: 13.6%;
-      top: 62%;
-      width: 15.7%;
-      height: 21%;
-    }
-
-    #level2 .hitboxes .hitbox:nth-child(5) {
-      left: 33.5%;
-      top: 59.1%;
-      width: 19.3%;
+    #level2 .hitboxes .hitbox[data-hitbox="but9"] {
+      left: 32.8%;
+      top: 59.4%;
+      width: 21%;
       height: 22%;
     }
 
-    #level2 .hitboxes .hitbox:nth-child(6) {
-      left: 12.9%;
-      top: 40%;
-      width: 16.6%;
-      height: 22%;
-    }
-
-    #level2 .hitboxes .hitbox:nth-child(7) {
-      left: 33.5%;
-      top: 18.8%;
-      width: 19.6%;
-      height: 21%;
-    }
-
-    #level2 .hitboxes .hitbox:nth-child(8) {
-      left: 65.5%;
-      top: 53.2%;
-      width: 21.2%;
-      height: 28%;
+    #level2 .hitboxes .hitbox[data-hitbox="but11"] {
+      left: 33%;
+      top: 19%;
+      width: 20%;
+      height: 20.4%;
     }
 
 
@@ -402,27 +387,45 @@
     }
 
     #level2 .static img:nth-child(1) {
-      left: 31.1%;
-      top: 39.4%;
-      width: 10%;
+      left: 30.2%;
+      top: 39.6%;
+      width: 10.1%;
     }
 
     #level2 .static img:nth-child(2) {
-      left: 54%;
-      top: 67.4%;
+      left: 54.4%;
+      top: 67.3%;
       width: 11%;
     }
 
     #level2 .static img:nth-child(3) {
-      left: 52.5%;
+      left: 53%;
       top: 22.1%;
       width: 15.5%;
     }
 
     #level2 .static img:nth-child(4) {
-      left: 30%;
+      left: 29.4%;
       top: 52%;
-      width: 12.3%;
+      width: 12.6%;
+    }
+
+    #level2 .static img:nth-child(5) {
+      left: 66.3%;
+      top: 53.4%;
+      width: 22%;
+    }
+
+    #level2 .static img:nth-child(6) {
+      left: 11.3%;
+      top: 40%;
+      width: 17.5%;
+    }
+
+    #level2 .static img:nth-child(7) {
+      left: 12.3%;
+      top: 62%;
+      width: 16.5%;
     }
 
     #level2 .butterflies img {
@@ -448,19 +451,19 @@
     #level2 .butterflies img:nth-child(2) {
       left: 81.6%;
       top: 30%;
-      width: 26%;
+      width: 27.7%;
     }
 
     #level2 .butterflies img:nth-child(3) {
       left: -5%;
       top: 60%;
-      width: 18.4%;
+      width: 18.7%;
     }
 
     #level2 .butterflies img:nth-child(4) {
       left: 88%;
       top: 38%;
-      width: 16%;
+      width: 20.4%;
     }
 
     #level2 .butterflies img:nth-child(5) {
@@ -486,12 +489,29 @@
       top: 70%;
       width: 21.1%;
     }
+
+    .note {
+      color: #fff;
+      font-family: Delicious;
+      font-size: 40px;
+      width: 100%;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 680px) {
+      .note {
+        font-size: 25px;
+      }
+    }
   </style>
 </head>
 
 <body>
   <div class="game">
+    <audio id="theme" src="assets/theme.mp3"></audio>
     <div class="level" id="level1">
+      <div class="note">Put the object in the right place</div>
 
       <div class="main">
         <img draggable="false" class="hand" src="assets/hand.png" alt="" />
@@ -528,11 +548,8 @@
           <div data-hitbox="but4" class="hitbox"></div>
           <div data-hitbox="but6" class="hitbox"></div>
           <div data-hitbox="but7" class="hitbox"></div>
-          <div data-hitbox="but8" class="hitbox"></div>
           <div data-hitbox="but9" class="hitbox"></div>
-          <div data-hitbox="but10" class="hitbox"></div>
           <div data-hitbox="but11" class="hitbox"></div>
-          <div data-hitbox="but12" class="hitbox"></div>
         </div>
 
         <div class="static">
@@ -540,6 +557,9 @@
           <img draggable="false" src="assets/2-level/2.png">
           <img draggable="false" src="assets/2-level/3.png">
           <img draggable="false" src="assets/2-level/5.png">
+          <img draggable="false" src="assets/2-level/12.png">
+          <img draggable="false" src="assets/2-level/10.png">
+          <img draggable="false" src="assets/2-level/8.png">
         </div>
 
         <img draggable="false" class="stand" src="assets/2-level/pic.png">
@@ -548,13 +568,13 @@
           <img draggable="false" data-hitbox="but4" src="assets/2-level/4.png">
           <img draggable="false" data-hitbox="but6" src="assets/2-level/6.png">
           <img draggable="false" data-hitbox="but7" src="assets/2-level/7.png">
-          <img draggable="false" data-hitbox="but8" src="assets/2-level/8.png">
           <img draggable="false" data-hitbox="but9" src="assets/2-level/9.png">
-          <img draggable="false" data-hitbox="but10" src="assets/2-level/10.png">
           <img draggable="false" data-hitbox="but11" src="assets/2-level/11.png">
-          <img draggable="false" data-hitbox="but12" src="assets/2-level/12.png">
         </div>
       </div>
+
+      <div class="note">Put the object in the right place</div>
+
     </div>
 
     <div id="popup">
@@ -575,6 +595,12 @@
 
     const audios = document.querySelectorAll('audio')
     audios.forEach(audio => audio.volume = 0.45)
+
+    const theme = document.getElementById('theme')
+    theme.play()
+    theme.onended = () => theme.play()
+    document.addEventListener('mousedown', () => theme.play())
+    document.addEventListener('touchstart', () => theme.play())
 
     const levels = document.querySelectorAll('.level')
     function selectLevel(id) {
@@ -641,6 +667,13 @@
         }, 1000);
       }, 1000);
 
+    }
+
+    function playSuccess() {
+      const audio = document.createElement('audio')
+      audio.src = "assets/successed.mp3"
+      audio.onended = audio.remove
+      audio.play()
     }
 
     //  LEVEL 1 
@@ -722,6 +755,7 @@
             const hitbox = isIntersecting(corn, ...hitboxes)
             if (hitbox && hitbox.dataset.active !== 'true') {
 
+              playSuccess()
               const hitboxRect = hitbox.getBoundingClientRect()
               // level.querySelector(`[data-sound="${corn.dataset.play}"]`).play()
 
@@ -840,8 +874,9 @@
 
               butterfly.style.zIndex = 1
               butterfly.dataset.active = true
+              playSuccess()
 
-              if (level.querySelectorAll('[data-active="true"]').length === 8) {
+              if (level.querySelectorAll('[data-active="true"]').length === 5) {
                 level.style.pointerEvents = 'none'
                 popup.classList.add('active')
               }
@@ -857,6 +892,7 @@
         butterfly.onmousedown = butterfly.ontouchstart = dragDrop
       })
     }
+    // level2()
   </script>
 </body>
 
