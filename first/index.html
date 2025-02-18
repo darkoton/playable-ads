@@ -724,23 +724,14 @@
       const indicator = level.querySelector('.indicator')
       const hand = level.querySelector('.hand')
 
-      if (window.innerWidth <= 1070) {
-        handTutorial(hand,
-          {
-            leftStart: '31%',
-            topStart: '65%',
-            leftEnd: '80vw',
-            topEnd: '79%',
-          })
-      } else {
-        handTutorial(hand,
-          {
-            leftStart: '23%',
-            topStart: '30%',
-            leftEnd: '18%',
-            topEnd: '75%',
-          })
-      }
+      handTutorial(hand,
+        {
+          leftStart: '23%',
+          topStart: '30%',
+          leftEnd: '18%',
+          topEnd: '75%',
+        })
+
       wires.forEach(wire => {
         const hitbox = wire.querySelector('.hitbox')
         const imgs = wire.querySelectorAll('img')
@@ -803,14 +794,10 @@
 
               level.querySelector(`[data-sound="${wire.dataset.play}"]`).play()
 
-              if (window.innerWidth <= 1070) {
-                wire.style.left = otherHitboxRect.x - wire.offsetWidth + otherHitbox.offsetWidth * (wire.dataset.offsetMob ? wire.dataset.offsetMob : wire.dataset.offset ? wire.dataset.offset : 1) + 'px';
-                wire.style.top = otherHitboxRect.y + (otherHitbox.offsetHeight / 2) - (wire.offsetHeight / 2) + 'px';
-              } else {
-                wire.style.left = otherHitboxRect.x + (otherHitbox.offsetWidth / 2) - (wire.offsetWidth / 2) + 'px';
-                wire.style.top = otherHitboxRect.y - wire.offsetHeight + otherHitbox.offsetHeight * (wire.dataset.offset ? wire.dataset.offset : 1) + 'px';
 
-              }
+              wire.style.left = otherHitboxRect.x + (otherHitbox.offsetWidth / 2) - (wire.offsetWidth / 2) + 'px';
+              wire.style.top = otherHitboxRect.y - wire.offsetHeight + otherHitbox.offsetHeight * (wire.dataset.offset ? wire.dataset.offset : 1) + 'px';
+
 
               wire.style.zIndex = 1
               wire.dataset.active = true
