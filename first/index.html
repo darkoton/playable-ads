@@ -81,7 +81,7 @@
 
     .announcement {
       position: absolute;
-      top: 25vh;
+      top: 40vh;
       left: 50%;
       -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
@@ -178,6 +178,18 @@
       position: relative;
     }
 
+    /* @media (max-width: 992px) {
+      .adapter {
+        bottom: 20%;
+      }
+    } */
+
+    @media (max-height: 900px) and (max-width: 768px) {
+      .adapter {
+        bottom: 20%;
+      }
+    }
+
     .adapter .block {
       width: 100%;
       height: 100%;
@@ -246,6 +258,14 @@
       height: 80vw;
     }
 
+    @media (max-width: 760px) {
+      .wire {
+
+        top: calc(100vh - 50vh - 100vw);
+      }
+
+    }
+
 
     .wire .hitbox {
       position: absolute;
@@ -271,7 +291,7 @@
     }
 
     .wire:nth-child(2) {
-      width: 5.8vw;
+      width: 5.5vw;
       left: 23%;
     }
 
@@ -280,7 +300,7 @@
     }
 
     .wire:nth-child(3) {
-      width: 4.9vw;
+      width: 4.6vw;
       left: 53%;
     }
 
@@ -477,7 +497,7 @@
   <div class="game">
     <audio id="theme" src="assets/theme.mp3"></audio>
 
-    <div class="level" id="level1">
+    <div class="level" id="level1" style="display: none;">
       <audio data-sound="cow" src="assets/1-level/ad_sounds/1 бумажка корова.mp3"></audio>
       <audio data-sound="goat" src="assets/1-level/ad_sounds/2 бумажка коза.mp3"></audio>
       <audio data-sound="horse" src="assets/1-level/ad_sounds/3 бумажка лошадь.mp3"></audio>
@@ -500,7 +520,7 @@
       </div>
     </div>
 
-    <div class="level" id="level2" style="display: none;">
+    <div class="level" id="level2">
       <audio data-sound="take" src="assets/2-level/audio/потянуть-за-шнур.mp3"></audio>
       <audio data-sound="put1" src="assets/2-level/audio/вставить 1.mp3"></audio>
       <audio data-sound="put2" src="assets/2-level/audio/вставить 2.mp3"></audio>
@@ -820,12 +840,9 @@
 
         hitbox.onmousedown = hitbox.ontouchstart = dragDrop
       })
-
-
-
-
-
     }
+
+    level2()
 
   </script>
 </body>
