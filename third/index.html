@@ -55,6 +55,7 @@
       z-index: 10;
       left: 0%;
       top: 0%;
+      pointer-events: none;
     }
 
     /* POPUP */
@@ -672,6 +673,7 @@
     function playSuccess() {
       const audio = document.createElement('audio')
       audio.src = "assets/successed.mp3"
+      audio.volume = 0.5
       audio.onended = audio.remove
       audio.play()
     }
@@ -760,8 +762,8 @@
               // level.querySelector(`[data-sound="${corn.dataset.play}"]`).play()
 
               corn.dataset.hitbox = hitbox.dataset.hitbox
-              corn.style.left = hitboxRect.x - mainRect.left + 'px';
-              corn.style.top = hitboxRect.y - mainRect.top + 'px';
+              corn.style.left = hitboxRect.left - mainRect.left + 'px';
+              corn.style.top = hitboxRect.top - mainRect.top + 'px';
 
               corn.style.zIndex = 1
               corn.dataset.active = true
@@ -868,8 +870,8 @@
               putAudio.play()
 
 
-              butterfly.style.left = hitboxRect.x - mainRect.left + 'px';
-              butterfly.style.top = hitboxRect.y - mainRect.top + 'px';
+              butterfly.style.left = hitboxRect.left - mainRect.left + 'px';
+              butterfly.style.top = hitboxRect.top - mainRect.top + 'px';
 
 
               butterfly.style.zIndex = 1

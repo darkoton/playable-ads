@@ -55,6 +55,7 @@
       z-index: 10;
       left: 0%;
       top: 0%;
+      pointer-events: none;
     }
 
     /* POPUP */
@@ -395,7 +396,7 @@
 
     #level2 .box {
       position: relative;
-      max-width: 105vh;
+      max-width: 70%;
       left: 50%;
       top: 40%;
       -webkit-transform: translate(-50%, -50%);
@@ -465,6 +466,7 @@
       -ms-transform: scale(0.9);
       transform: scale(0.9);
       cursor: pointer;
+      width: 100%;
     }
 
     #level2 .buttons .button img {
@@ -475,13 +477,13 @@
     #level2 .buttons .red .button:nth-child(1) {
       top: 30%;
       left: 8%;
-      width: 19%;
+      max-width: 19%;
     }
 
     #level2 .buttons .red .button:nth-child(2) {
       top: 100%;
       left: 4%;
-      width: 16%;
+      max-width: 16%;
       -webkit-transform: rotate(25deg) scale(0.9);
       -ms-transform: rotate(25deg) scale(0.9);
       transform: rotate(25deg) scale(0.9);
@@ -490,25 +492,25 @@
     #level2 .buttons .red .button:nth-child(3) {
       top: 110%;
       left: 74%;
-      width: 16%;
+      max-width: 16%;
     }
 
     #level2 .buttons .blue .button:nth-child(1) {
       top: 105%;
       left: 24%;
-      width: 16%;
+      max-width: 16%;
     }
 
     #level2 .buttons .blue .button:nth-child(2) {
       top: 35%;
       left: 40%;
-      width: 16%;
+      max-width: 16%;
     }
 
     #level2 .buttons .blue .button:nth-child(3) {
       top: 110%;
       left: 86%;
-      width: 12%;
+      max-width: 12%;
       -webkit-transform: rotate(-25deg);
       -ms-transform: rotate(-25deg);
       transform: rotate(-25deg);
@@ -517,13 +519,13 @@
     #level2 .buttons .green .button:nth-child(1) {
       top: 105%;
       left: 50%;
-      width: 16%;
+      max-width: 16%;
     }
 
     #level2 .buttons .green .button:nth-child(2) {
       top: 30%;
       left: 75%;
-      width: 12%;
+      max-width: 12%;
       -webkit-transform: rotate(-25deg);
       -ms-transform: rotate(-25deg);
       transform: rotate(-25deg);
@@ -532,7 +534,7 @@
     #level2 .buttons .green .button:nth-child(3) {
       top: 110%;
       left: 66%;
-      width: 12%;
+      max-width: 12%;
     }
 
     .note {
@@ -815,6 +817,7 @@
     function playSuccess() {
       const audio = document.createElement('audio')
       audio.src = "assets/successed.mp3"
+      audio.volume = 0.5
       audio.onended = audio.remove
       audio.play()
     }

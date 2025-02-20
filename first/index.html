@@ -56,6 +56,7 @@
       z-index: 10;
       left: 0%;
       top: 0%;
+      pointer-events: none;
     }
 
     /* LEVEL 1 */
@@ -159,34 +160,34 @@
 
     #level2 {
       background: url('assets/2-level/bg.jpg') 0 0/ cover no-repeat;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: end;
-      -ms-flex-pack: flex-end;
-      justify-content: end;
-      -webkit-box-align: end;
-      -ms-flex-align: end;
-      align-items: end;
       padding: 50px 0;
-      flex-direction: column;
+    }
+
+    #level2 .note {
+      position: absolute;
+      left: 50%;
+      bottom: 2%;
+      transform: translateX(-50%);
     }
 
 
     .adapter {
       width: 100%;
-      position: relative;
+      position: absolute;
+      bottom: 10%;
     }
 
-    /* @media (max-width: 992px) {
-      .adapter {
-        bottom: 20%;
-      }
-    } */
 
-    @media (max-height: 900px) and (max-width: 768px) {
+
+    @media (max-width: 992px) {
       .adapter {
+        bottom: 40%;
+        transform: translateY(50%);
+      }
+
+      #level2 .note {
         bottom: 20%;
+
       }
     }
 
@@ -195,42 +196,42 @@
       height: 100%;
     }
 
-    .adapter .hitbox {
+    .adapter .hitboxes .hitbox {
       position: absolute;
       left: 0;
       top: 0;
       /* background-color: rgba(0, 0, 255, 0.3); */
     }
 
-    .adapter .hitbox:nth-child(1) {
+    .adapter .hitboxes .hitbox:nth-child(1) {
       width: 4.6%;
       height: 20%;
       left: 9%;
       top: 40%;
     }
 
-    .adapter .hitbox:nth-child(2) {
+    .adapter .hitboxes .hitbox:nth-child(2) {
       width: 4.6%;
       height: 20%;
       left: 19.3%;
       top: 40%;
     }
 
-    .adapter .hitbox:nth-child(3) {
+    .adapter .hitboxes .hitbox:nth-child(3) {
       width: 3%;
       height: 13%;
       left: 30.5%;
       top: 44%;
     }
 
-    .adapter .hitbox:nth-child(4) {
+    .adapter .hitboxes .hitbox:nth-child(4) {
       width: 13.3%;
       height: 58%;
       left: 39.5%;
       top: 18%;
     }
 
-    .adapter .hitbox:nth-child(5) {
+    .adapter .hitboxes .hitbox:nth-child(5) {
       width: 13.3%;
       height: 58%;
       left: 54.9%;
@@ -238,34 +239,15 @@
     }
 
     .wire {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: end;
-      -ms-flex-align: end;
-      align-items: end;
-      -webkit-box-pack: end;
-      -ms-flex-pack: end;
-      justify-content: end;
-      top: calc(100vh - 50vh - 80vw);
-      /* bottom: 50vh; */
+      bottom: 100%;
       left: 0;
       position: absolute;
       z-index: 4;
-      -webkit-transform: scale(0.9);
+      /* -webkit-transform: scale(0.9);
       -ms-transform: scale(0.9);
-      transform: scale(0.9);
-      height: 80vw;
+      transform: scale(0.9); */
+      /* height: 80vw; */
     }
-
-    @media (max-width: 760px) {
-      .wire {
-
-        top: calc(100vh - 50vh - 100vw);
-      }
-
-    }
-
 
     .wire .hitbox {
       position: absolute;
@@ -279,64 +261,80 @@
 
     .wire img {
       width: 100%;
+      height: 100%;
     }
 
     .wire:nth-child(1) {
-      width: 5.8vw;
+      width: 5.8%;
       left: 65%;
     }
 
     .wire:nth-child(1) .hitbox {
-      height: 32%;
+      height: 11%;
     }
 
     .wire:nth-child(2) {
-      width: 5.5vw;
+      width: 5.5%;
       left: 23%;
     }
 
     .wire:nth-child(2) .hitbox {
-      height: 32%;
+      height: 11.2%;
     }
 
     .wire:nth-child(3) {
-      width: 4.6vw;
+      width: 4.6%;
       left: 53%;
     }
 
     .wire:nth-child(3) .hitbox {
-      height: 24%;
+      height: 9%;
     }
 
     .wire:nth-child(4) {
-      width: 12vw;
+      width: 12%;
       left: 7%;
 
     }
 
     .wire:nth-child(4) .hitbox {
-      height: 22.5%;
+      height: 9%;
     }
 
     .wire:nth-child(5) {
-      width: 13.5vw;
+      width: 13.5%;
       left: 33%;
     }
 
     .wire:nth-child(5) .hitbox {
-      height: 22.5%;
+      height: 8%;
     }
 
     .indicator {
       position: absolute;
       right: 25%;
       top: 45%;
-      width: 3vw;
+      width: 3%;
       max-width: 100%;
       -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
       transform: translateY(-50%);
     }
+
+    /* @media (max-height: 900px) and (max-width: 768px),
+    (max-width: 880px) {
+      .adapter {
+        bottom: 25%;
+      }
+
+      .wire {
+        bottom: 65vh;
+      }
+
+      #level2 .note {
+        margin-bottom: 30px;
+      }
+    } */
 
     /* POPUP */
 
@@ -483,6 +481,8 @@
       width: 100%;
       text-align: center;
       margin: 20px 0;
+      position: relative;
+      z-index: 10;
     }
 
     @media (max-width: 680px) {
@@ -528,51 +528,54 @@
       <audio data-sound="put4" src="assets/2-level/audio/вставить 4.mp3"></audio>
 
 
-      <div class="wires">
-        <div class="wire" data-play="put1" data-offset="1.2">
-          <img draggable="false" data-in="assets/2-level/w1in.png" data-out="assets/2-level/w1.png"
-            src="assets/2-level/w1.png" alt="">
-          <div data-hitbox="blue" class="hitbox"></div>
-        </div>
 
-        <div class="wire" data-play="put1" data-offset="1.2">
-          <img draggable="false" data-in="assets/2-level/w2in.png" data-out="assets/2-level/w2.png"
-            src="assets/2-level/w2.png" alt="">
-          <div data-hitbox="red" class="hitbox"></div>
-        </div>
 
-        <div class="wire" data-play="put2" data-offset="1.4">
-          <img draggable="false" data-in="assets/2-level/w3in.png" data-out="assets/2-level/w3.png"
-            src="assets/2-level/w3.png" alt="">
-          <div data-hitbox="blue-light" class="hitbox"></div>
-        </div>
-
-        <div class="wire" data-play="put2" data-offset="0.75">
-          <img draggable="false" data-in="assets/2-level/w4in.png" data-out="assets/2-level/w4.png"
-            src="assets/2-level/w4.png" alt="">
-          <div data-hitbox="black" class="hitbox"></div>
-        </div>
-
-        <div class="wire" data-play="put2" data-offset="0.9">
-          <img draggable="false" data-in="assets/2-level/w5in.png" data-out="assets/2-level/w5.png"
-            src="assets/2-level/w5.png" alt="">
-          <div data-hitbox="orange" class="hitbox"></div>
-        </div>
-      </div>
-
-      <img class="hand" draggable="false" src="assets/hand.png" alt="">
       <div class="adapter">
+        <img class="hand" draggable="false" src="assets/hand.png" alt="">
+
+        <div class="wires">
+          <div class="wire" data-play="put1" data-offset="-0.25">
+            <img draggable="false" data-in="assets/2-level/w1in.png" data-out="assets/2-level/w1.png"
+              src="assets/2-level/w1.png" alt="">
+            <div data-hitbox="blue" class="hitbox"></div>
+          </div>
+
+          <div class="wire" data-play="put1" data-offset="-0.25">
+            <img draggable="false" data-in="assets/2-level/w2in.png" data-out="assets/2-level/w2.png"
+              src="assets/2-level/w2.png" alt="">
+            <div data-hitbox="red" class="hitbox"></div>
+          </div>
+
+          <div class="wire" data-play="put2" data-offset="-0.3">
+            <img draggable="false" data-in="assets/2-level/w3in.png" data-out="assets/2-level/w3.png"
+              src="assets/2-level/w3.png" alt="">
+            <div data-hitbox="blue-light" class="hitbox"></div>
+          </div>
+
+          <div class="wire" data-play="put2" data-offset="0.2">
+            <img draggable="false" data-in="assets/2-level/w4in.png" data-out="assets/2-level/w4.png"
+              src="assets/2-level/w4.png" alt="">
+            <div data-hitbox="black" class="hitbox"></div>
+          </div>
+
+          <div class="wire" data-play="put2" data-offset="0.1">
+            <img draggable="false" data-in="assets/2-level/w5in.png" data-out="assets/2-level/w5.png"
+              src="assets/2-level/w5.png" alt="">
+            <div data-hitbox="orange" class="hitbox"></div>
+          </div>
+        </div>
 
         <img draggable="false" class="block" src="assets/2-level/adapt.png" alt="">
         <img draggable="false" class="indicator" src="assets/2-level/off.png" alt="">
 
-        <div class="hitboxs">
+        <div class="hitboxes">
           <div data-hitbox="blue" class="hitbox"></div>
           <div data-hitbox="red" class="hitbox"></div>
           <div data-hitbox="blue-light" class="hitbox"></div>
           <div data-hitbox="black" class="hitbox"></div>
           <div data-hitbox="orange" class="hitbox"></div>
         </div>
+
       </div>
 
       <div class="note">Put the object in the right place</div>
@@ -607,7 +610,7 @@
     function selectLevel(id) {
       levels.forEach(level => {
         if (level.id === id) {
-          level.style.display = 'flex'
+          level.style.display = 'block'
         } else {
           level.style.display = 'none'
         }
@@ -661,6 +664,7 @@
     function playSuccess() {
       const audio = document.createElement('audio')
       audio.src = "assets/successed.mp3"
+      audio.volume = 0.5
       audio.onended = audio.remove
       audio.play()
     }
@@ -740,6 +744,7 @@
     function level2() {
       const level = document.querySelector('#level2')
       const wires = level.querySelectorAll('.wire')
+      const adapter = level.querySelector('.adapter')
       const takeAudio = level.querySelector('[data-sound="take"]')
       const indicator = level.querySelector('.indicator')
       const hand = level.querySelector('.hand')
@@ -747,9 +752,9 @@
       handTutorial(hand,
         {
           leftStart: '23%',
-          topStart: '30%',
+          topStart: '-60%',
           leftEnd: '18%',
-          topEnd: '75%',
+          topEnd: '47%',
         })
 
       wires.forEach(wire => {
@@ -773,29 +778,35 @@
 
           imgs.forEach(img => img.src = img.dataset.out)
 
+          const adapterRect = adapter.getBoundingClientRect();
+
           const rect = wire.getBoundingClientRect();
-          let offsetX = e.clientX - rect.left;
-          let offsetY = e.clientY - rect.top;
+          let offsetX
+          let offsetY
 
           if (e.touches) {
             offsetX = e.touches[0].clientX - rect.left;
-            offsetY = e.touches[0].clientY - rect.top;
+            offsetY = window.innerHeight - e.touches[0].clientY - (window.innerHeight - rect.bottom);
           } else {
             offsetX = e.clientX - rect.left;
-            offsetY = e.clientY - rect.top;
+            offsetY = window.innerHeight - e.clientY - (window.innerHeight - rect.bottom);
           }
 
           function moveAt(e) {
+            let posX, posY;
 
             if (e.touches) {
-              wire.style.left = e.touches[0].pageX - offsetX + 'px';
-              wire.style.top = e.touches[0].pageY - offsetY + 'px';
+              posX = e.touches[0].pageX - offsetX;
+              posY = adapterRect.bottom - e.touches[0].pageY - offsetY;
             } else {
-              wire.style.left = e.pageX - offsetX + 'px';
-              wire.style.top = e.pageY - offsetY + 'px';
+              posX = e.pageX - offsetX;
+              posY = adapterRect.bottom - e.pageY - offsetY;
             }
-          }
 
+            wire.style.left = posX + 'px';
+            wire.style.bottom = posY + 'px';
+
+          }
           document.onmousemove = document.ontouchmove = function (e) {
             moveAt(e);
           }
@@ -814,9 +825,8 @@
 
               level.querySelector(`[data-sound="${wire.dataset.play}"]`).play()
 
-
-              wire.style.left = otherHitboxRect.x + (otherHitbox.offsetWidth / 2) - (wire.offsetWidth / 2) + 'px';
-              wire.style.top = otherHitboxRect.y - wire.offsetHeight + otherHitbox.offsetHeight * (wire.dataset.offset ? wire.dataset.offset : 1) + 'px';
+              wire.style.left = otherHitboxRect.left + (otherHitbox.offsetWidth / 2) - (wire.offsetWidth / 2) + 'px';
+              wire.style.bottom = adapterRect.bottom - otherHitboxRect.bottom + otherHitbox.offsetHeight * (wire.dataset.offset ? wire.dataset.offset : 0) + 'px';
 
 
               wire.style.zIndex = 1
